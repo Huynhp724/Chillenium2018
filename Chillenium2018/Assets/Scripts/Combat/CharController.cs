@@ -198,8 +198,8 @@ public class CharController : MonoBehaviour {
                 anim.SetInteger("Form", 1);
             }
             anim.SetBool("Rumbling", true);
-            change = false;
-            checkIn = false;
         }
+        change = false;
+        checkIn = false;
     }
 }
