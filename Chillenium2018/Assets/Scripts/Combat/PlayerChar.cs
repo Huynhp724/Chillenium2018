@@ -34,13 +34,13 @@ public class PlayerChar : MonoBehaviour {
 		debugTextScore.text = "SCORE: " + score;
 	}
 
-	public void DamagePlayer(Entity.Element otherType){
+	public void DamagePlayer(GameObject shooter, Entity.Element otherType){
 
 		Entity.Element myType = gameObject.GetComponent<Entity>().type;
 		Debug.Log ("collision with " + otherType);
 
 		if (otherType == myType) { //if same type
-			Debug.Log(myType + "hit by its own type");
+			Debug.Log(myType + " hit by its own type");
 			health -= damageFromSame;
 		}
 
@@ -73,10 +73,15 @@ public class PlayerChar : MonoBehaviour {
 				health -= damageFromStrength;
 			}
 		}
-	}
+        if (health <= 0)
+        {
+            Death();
+            shooter.GetComponent<PlayerChar>().score++;
+        }
+    }
 
 	void Death(){
-		score++;
+		
 		transform.SetPositionAndRotation (new Vector3 (spawn.x, spawn.y, transform.position.z), transform.rotation);
 		health = maxHealth;
 	}

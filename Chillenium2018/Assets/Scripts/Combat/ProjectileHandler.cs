@@ -36,7 +36,7 @@ public class ProjectileHandler : MonoBehaviour {
 		Entity.Element myType = gameObject.GetComponent<Entity>().type;
 		if (col.gameObject.tag.Equals ("Player")) {
 			Debug.Log ("hit player");
-			col.gameObject.GetComponent<PlayerChar> ().DamagePlayer (myType); 
+			col.gameObject.GetComponent<PlayerChar> ().DamagePlayer (source, myType); 
 			Destroy (gameObject);
 			return;
 		}

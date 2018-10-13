@@ -46,7 +46,7 @@ public class CharController : MonoBehaviour {
         {
             if ((Input.GetButtonDown("Jump") || Input.GetAxis("Vertical") == 1) && grounded)
             {
-                Debug.Log("JUMP");
+                //Debug.Log("JUMP");
                 jumped = true;
             }
             //Debug.Log(Input.GetAxisRaw("DpadX"));
@@ -80,7 +80,7 @@ public class CharController : MonoBehaviour {
         {
             if ((Input.GetButtonDown("Jump2") || Input.GetAxis("Vertical2") == 1) && grounded)
             {
-                Debug.Log("JUMP");
+                //Debug.Log("JUMP");
                 jumped = true;
             }
             //Debug.Log(Input.GetAxisRaw("DpadX"));
@@ -185,6 +185,7 @@ public class CharController : MonoBehaviour {
         if (type != changeType)
         {
             type = changeType;
+            gameObject.GetComponent<Entity>().changeType(type);
             if (type == Entity.Element.bass)
             {
                 anim.SetInteger("Form", -1);

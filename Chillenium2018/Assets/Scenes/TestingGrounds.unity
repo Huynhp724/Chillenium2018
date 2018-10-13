@@ -711,7 +711,7 @@ GameObject:
   m_Layer: 0
   m_Name: Marker
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -962,7 +962,7 @@ GameObject:
   m_Layer: 0
   m_Name: Marker
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1229,6 +1229,29 @@ Prefab:
       propertyPath: debugTextScore
       value: 
       objectReference: {fileID: 26369609}
+    - target: {fileID: 114765275219816630, guid: 43f253aaa63754740b60e932b49a16b9,
+        type: 2}
+      propertyPath: blasterSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864550719039122, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 1426095354103484, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 4197533915536444, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197533915536444, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
   m_IsPrefabAsset: 0
@@ -1295,6 +1318,24 @@ Prefab:
       propertyPath: debugTextHealth
       value: 
       objectReference: {fileID: 1964997920}
+    - target: {fileID: 114765275219816630, guid: 43f253aaa63754740b60e932b49a16b9,
+        type: 2}
+      propertyPath: blasterSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864550719039122, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 4197533915536444, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197533915536444, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
   m_IsPrefabAsset: 0
