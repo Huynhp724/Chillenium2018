@@ -11,12 +11,13 @@ public class CharController : MonoBehaviour {
     bool facingRight = true; //direction char is facing
     bool jumped = false; //turns to true when button is pressed
     bool grounded = false; //is Player in air
-    bool change = false; 
+    public bool change = false; 
     public Transform groundCheck;
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
     public Transform SpawnLocation;
     Entity.Element type;
+    Entity.Element changeType;
 
     Rigidbody2D rb;
     SpriteRenderer spr;
@@ -41,41 +42,35 @@ public class CharController : MonoBehaviour {
         {
             jumped = true;
         }
-        Debug.Log(Input.GetAxisRaw("DpadX"));
-        if(Input.GetAxisRaw("DpadX") < 0 && type != Entity.Element.bass)
+        //Debug.Log(Input.GetAxisRaw("DpadX"));
+        if (GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().canChange)
         {
-            ent.changeType(Entity.Element.bass);
-            change = true;
+            if (Input.GetAxisRaw("DpadX") < 0)
+            {
+                changeType = Entity.Element.bass;
+                GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().checkIn = true;
+
+            }
+            if (Input.GetAxisRaw("DpadX") > 0)
+            {
+                changeType = Entity.Element.horn;
+                GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().checkIn = true;
+
+            }
+            if (Input.GetAxisRaw("DpadY") > 0)
+            {
+                changeType = Entity.Element.guitar;
+                GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().checkIn = true;
+
+            }
+           
+                            
         }
-        if (Input.GetAxisRaw("DpadX") > 0 && type != Entity.Element.horn)
-        {
-            ent.changeType(Entity.Element.horn);
-            change = true;
-        }
-        if (Input.GetAxisRaw("DpadY") > 0 && type != Entity.Element.guitar)
-        {
-            ent.changeType(Entity.Element.guitar);
-            change = true;
-        }
-        type = gameObject.GetComponent<Entity>().type;
 
         //TRANSFORMATION
         if (change)
         {
-            if(type == Entity.Element.bass)
-            {
-                anim.SetInteger("Form", -1);
-            }
-            if (type == Entity.Element.guitar)
-            {
-                anim.SetInteger("Form", 0);
-            }
-            if (type == Entity.Element.horn)
-            {
-                anim.SetInteger("Form", 1);
-            }
-            anim.SetBool("Rumbling", true);
-            change = false;
+            transformation();
         }
 
 
@@ -133,5 +128,27 @@ public class CharController : MonoBehaviour {
     {
         Debug.Log("NO RUMBLE");
         anim.SetBool("Rumbling", false);
+    }
+
+    public void transformation()
+    {
+        if (type != changeType)
+        {
+            type = changeType;
+            if (type == Entity.Element.bass)
+            {
+                anim.SetInteger("Form", -1);
+            }
+            if (type == Entity.Element.guitar)
+            {
+                anim.SetInteger("Form", 0);
+            }
+            if (type == Entity.Element.horn)
+            {
+                anim.SetInteger("Form", 1);
+            }
+            anim.SetBool("Rumbling", true);
+            change = false;
+        }
     }
 }
