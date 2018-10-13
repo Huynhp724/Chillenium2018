@@ -14,7 +14,9 @@ public class StateManager : MonoBehaviour {
     float counter;
     public bool canChange;
     GameObject[] players;
-
+    public AudioClip[] countdownClips;
+    public AudioSource aud;
+    public int clipTracker;
     // Use this for initialization
     void Start () {
         Physics2D.gravity = new Vector3(0.0f, gravityForce, 0.0f);
@@ -22,6 +24,7 @@ public class StateManager : MonoBehaviour {
         players = GameObject.FindGameObjectsWithTag("Player");
         checkInText.text = "Standby...";
         checkInText2.text = "Standby...";
+        clipTracker = countdownClips.Length;
     }
 	
 	// Update is called once per frame
@@ -30,11 +33,15 @@ public class StateManager : MonoBehaviour {
         timerText.text = counterNum.ToString();
         counter -= Time.deltaTime;
         //If counter gets to check in time, allows player to lock in a choice
-        if(counterNum <= checkInTime)
+        if(counterNum < countdownClips.Length && clipTracker != counterNum)
         {
             canChange = true;
             timerText.color = Color.yellow;
+            aud.clip = countdownClips[counterNum];
+            aud.Play();
+            clipTracker--;
         }
+       
         //If player locks in, update their lock in message
         if (players[0].GetComponent<CharController>().checkIn)
         {
@@ -61,6 +68,7 @@ public class StateManager : MonoBehaviour {
             canChange = false;
             checkInText.text = "Standby...";
             checkInText2.text = "Standby...";
+            clipTracker = countdownClips.Length;
 
         }
 	}

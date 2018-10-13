@@ -7,8 +7,11 @@ public class Shoot : MonoBehaviour {
 	public GameObject projectile;
     public Transform spawnLocation;
 	public Text projectiles_remaining;
-    public AudioClip[] attackSFX;
+    public int attackNum;
     AudioSource[] attackSources;
+    public AudioClip[] fishSFX;
+    public AudioClip[] catSFX;
+    public AudioClip[] birdSFX;
     int audioCount = 0;
 
     public int max_projectiles = 5;
@@ -21,8 +24,8 @@ public class Shoot : MonoBehaviour {
 
     private void Awake()
     {
-        attackSources = new AudioSource[attackSFX.Length];
-       for(int i = 0; i < attackSFX.Length; i++)
+        attackSources = new AudioSource[attackNum];
+       for(int i = 0; i < attackNum; i++)
         {
             attackSources[i] = gameObject.AddComponent<AudioSource>();
             attackSources[i].volume = 0.05f;
@@ -79,11 +82,22 @@ public class Shoot : MonoBehaviour {
                     timer = spam_time;
 
                     //Plays projectile sound
-                    int clipNum = Random.Range(0, attackSFX.Length);
-                    attackSources[audioCount].clip = attackSFX[clipNum];
+                    int clipNum = Random.Range(0, attackNum);
+                    if(gameObject.GetComponent<Entity>().type == Entity.Element.bass)
+                    {
+                        attackSources[audioCount].clip = fishSFX[clipNum];
+                    }
+                    if (gameObject.GetComponent<Entity>().type == Entity.Element.guitar)
+                    {
+                        attackSources[audioCount].clip = catSFX[clipNum];
+                    }
+                    if (gameObject.GetComponent<Entity>().type == Entity.Element.horn)
+                    {
+                        attackSources[audioCount].clip = birdSFX[clipNum];
+                    }
                     attackSources[audioCount].Play(0);
                     audioCount++;
-                    if (audioCount >= attackSFX.Length)
+                    if (audioCount >= attackNum)
                     {
                         audioCount = 0;
                     }
@@ -98,11 +112,22 @@ public class Shoot : MonoBehaviour {
                     timer = spam_time;
 
                     //Plays projectile sound
-                    int clipNum = Random.Range(0, attackSFX.Length);
-                    attackSources[audioCount].clip = attackSFX[clipNum];
+                    int clipNum = Random.Range(0, attackNum);
+                    if (gameObject.GetComponent<Entity>().type == Entity.Element.bass)
+                    {
+                        attackSources[audioCount].clip = fishSFX[clipNum];
+                    }
+                    if (gameObject.GetComponent<Entity>().type == Entity.Element.guitar)
+                    {
+                        attackSources[audioCount].clip = catSFX[clipNum];
+                    }
+                    if (gameObject.GetComponent<Entity>().type == Entity.Element.horn)
+                    {
+                        attackSources[audioCount].clip = birdSFX[clipNum];
+                    }
                     attackSources[audioCount].Play(0);
                     audioCount++;
-                    if (audioCount >= attackSFX.Length)
+                    if (audioCount >= attackNum)
                     {
                         audioCount = 0;
                     }

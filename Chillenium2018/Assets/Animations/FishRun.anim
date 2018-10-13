@@ -87,7 +87,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 0
+  - time: 0.46666667
     functionName: playFishMovement
     data: 
     objectReferenceParameter: {fileID: 0}

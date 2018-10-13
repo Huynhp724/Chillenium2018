@@ -24,6 +24,12 @@ public class CharController : MonoBehaviour {
     public AudioClip[] fishMoveSFX;
     public AudioClip[] catMoveSFX;
     public AudioClip[] birdMoveSFX;
+    public AudioClip fishJumpSFX;
+    public AudioClip catJumpSFX;
+    public AudioClip birdJumpSFX;
+    public AudioClip fishLandSFX;
+    public AudioClip catLandSFX;
+    public AudioClip birdLandSFX;
 
     Rigidbody2D rb;
     SpriteRenderer spr;
@@ -201,15 +207,72 @@ public class CharController : MonoBehaviour {
             {
                 anim.SetInteger("Form", 1);
             }
-            anim.SetBool("Rumbling", true);
+          
         }
+        anim.SetBool("Rumbling", true);
         change = false;
         checkIn = false;
     }
 
     public void playFishMovement()
     {
-        aud.clip = fishMoveSFX[Random.Range(0, fishMoveSFX.Length)];
+        int randomSound = Random.Range(0, fishMoveSFX.Length);
+        aud.clip = fishMoveSFX[randomSound];
         aud.Play();
     }
+
+    public void playFishJump()
+    {
+        aud.clip = fishJumpSFX;
+        aud.Play();
+    }
+
+    public void playFishLand()
+    {
+        aud.clip = fishLandSFX;
+        aud.Play();
+    }
+
+    public void playCatMovement()
+    {
+        int randomSound = Random.Range(0, catMoveSFX.Length);
+        aud.clip = catMoveSFX[randomSound];
+        aud.Play();
+    }
+
+    public void playCatJump()
+    {
+        aud.clip = catJumpSFX;
+        aud.Play();
+    }
+
+    public void playCatLand()
+    {
+        aud.clip = catLandSFX;
+        aud.Play();
+    }
+    public void playBirdMovement()
+    {
+        int randomSound = Random.Range(0, catMoveSFX.Length);
+        aud.clip = catMoveSFX[randomSound];
+        aud.Play();
+    }
+
+    public void playBirdJump()
+    {
+        aud.clip = catJumpSFX;
+        aud.Play();
+    }
+
+    public void playBirdLand()
+    {
+        aud.clip = catLandSFX;
+        aud.Play();
+    }
+
+    public void playDashSound()
+    {
+
+    }
+
 }
