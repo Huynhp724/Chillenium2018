@@ -97,7 +97,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 926
+        width: 900
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -106,7 +106,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ec1634aed863d740b99b2f4982597d0
+      spriteID: 29296b493ddfc734fb16952f6ebca343
       vertices: []
       indices: 
       edges: []
@@ -115,9 +115,9 @@ TextureImporter:
       name: birdmovesprite_1
       rect:
         serializedVersion: 2
-        x: 926
+        x: 900
         y: 0
-        width: 926
+        width: 900
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -126,7 +126,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c15cc10779fa86e4eace8ead00cdcfaa
+      spriteID: 9a0efbd2fc0c3184ca1de64ef6d7b009
       vertices: []
       indices: 
       edges: []
@@ -135,9 +135,9 @@ TextureImporter:
       name: birdmovesprite_2
       rect:
         serializedVersion: 2
-        x: 1852
+        x: 1800
         y: 0
-        width: 926
+        width: 900
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -146,7 +146,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 729b2848a35cb7346866fabbac41e245
+      spriteID: bec1270572976914fb1306852d15c0ed
       vertices: []
       indices: 
       edges: []
@@ -155,9 +155,9 @@ TextureImporter:
       name: birdmovesprite_3
       rect:
         serializedVersion: 2
-        x: 2778
+        x: 2700
         y: 0
-        width: 926
+        width: 900
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,7 +166,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e599659b53879444fbb4328a93e9aeef
+      spriteID: fe059bc2325c35c4ab92437dfa2f0357
       vertices: []
       indices: 
       edges: []
@@ -175,9 +175,9 @@ TextureImporter:
       name: birdmovesprite_4
       rect:
         serializedVersion: 2
-        x: 3704
+        x: 3600
         y: 0
-        width: 926
+        width: 900
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -186,7 +186,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0570e0a0075ab214db71b647fdce2014
+      spriteID: 29cb5431d8020d14988eee68e86fa85e
       vertices: []
       indices: 
       edges: []
@@ -195,9 +195,9 @@ TextureImporter:
       name: birdmovesprite_5
       rect:
         serializedVersion: 2
-        x: 4630
+        x: 4500
         y: 0
-        width: 926
+        width: 900
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -206,7 +206,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a48cfc21f0d1a88459044a9d0064cb66
+      spriteID: cfb0e42eb18983a4983b6523b708f213
       vertices: []
       indices: 
       edges: []
@@ -215,9 +215,9 @@ TextureImporter:
       name: birdmovesprite_6
       rect:
         serializedVersion: 2
-        x: 5556
+        x: 5400
         y: 0
-        width: 926
+        width: 900
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -226,7 +226,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb972b183f68c3749bbbf3de5f9841bf
+      spriteID: eb249e7eea05b9c4487a0f3175d62566
       vertices: []
       indices: 
       edges: []
@@ -235,9 +235,9 @@ TextureImporter:
       name: birdmovesprite_7
       rect:
         serializedVersion: 2
-        x: 6482
+        x: 6300
         y: 0
-        width: 926
+        width: 900
         height: 750
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -246,7 +246,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05b22881052ac694f8eae2b34b27cd31
+      spriteID: 7f254d0bd1e3f2446adfb4dbaa093159
       vertices: []
       indices: 
       edges: []

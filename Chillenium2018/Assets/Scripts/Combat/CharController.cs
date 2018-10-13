@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharController : MonoBehaviour {
 
+    public enum PlayerNum { player1, player2, player3, player4}
     float move; //what direction char is facing
     public float movespeed = 10f; //movespeed
     public float jumpForce = 10f;
@@ -11,11 +12,13 @@ public class CharController : MonoBehaviour {
     bool facingRight = true; //direction char is facing
     bool jumped = false; //turns to true when button is pressed
     bool grounded = false; //is Player in air
-    public bool change = false; 
+    public bool change = false;
+    public bool checkIn = false;
     public Transform groundCheck;
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
     public Transform SpawnLocation;
+    public PlayerNum playerNumber;
     Entity.Element type;
     Entity.Element changeType;
 
@@ -37,34 +40,73 @@ public class CharController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        if ((Input.GetButtonDown("Jump")||Input.GetAxisRaw("Vertical") == 1) && grounded)
+
+        //PLAYER ONE INPUTS
+        if (playerNumber == PlayerNum.player1)
         {
-            jumped = true;
+            if ((Input.GetButtonDown("Jump") || Input.GetAxis("Vertical") == 1) && grounded)
+            {
+                Debug.Log("JUMP");
+                jumped = true;
+            }
+            //Debug.Log(Input.GetAxisRaw("DpadX"));
+            if (GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().canChange)
+            {
+                if (Input.GetAxisRaw("DpadX") < 0)
+                {
+                    changeType = Entity.Element.bass;
+                    checkIn = true;
+
+                }
+                if (Input.GetAxisRaw("DpadX") > 0)
+                {
+                    changeType = Entity.Element.horn;
+                    checkIn = true;
+
+                }
+                if (Input.GetAxisRaw("DpadY") > 0)
+                {
+                    changeType = Entity.Element.guitar;
+                    checkIn = true;
+
+                }
+
+
+            }
         }
-        //Debug.Log(Input.GetAxisRaw("DpadX"));
-        if (GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().canChange)
+
+        //PLAYER TWO INPUTS
+        if (playerNumber == PlayerNum.player2)
         {
-            if (Input.GetAxisRaw("DpadX") < 0)
+            if ((Input.GetButtonDown("Jump2") || Input.GetAxis("Vertical2") == 1) && grounded)
             {
-                changeType = Entity.Element.bass;
-                GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().checkIn = true;
+                Debug.Log("JUMP");
+                jumped = true;
+            }
+            //Debug.Log(Input.GetAxisRaw("DpadX"));
+            if (GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().canChange)
+            {
+                if (Input.GetAxisRaw("DpadX2") < 0)
+                {
+                    changeType = Entity.Element.bass;
+                    checkIn = true;
+
+                }
+                if (Input.GetAxisRaw("DpadX2") > 0)
+                {
+                    changeType = Entity.Element.horn;
+                    checkIn = true;
+
+                }
+                if (Input.GetAxisRaw("DpadY2") > 0)
+                {
+                    changeType = Entity.Element.guitar;
+                    checkIn = true;
+
+                }
+
 
             }
-            if (Input.GetAxisRaw("DpadX") > 0)
-            {
-                changeType = Entity.Element.horn;
-                GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().checkIn = true;
-
-            }
-            if (Input.GetAxisRaw("DpadY") > 0)
-            {
-                changeType = Entity.Element.guitar;
-                GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().checkIn = true;
-
-            }
-           
-                            
         }
 
         //TRANSFORMATION
@@ -81,7 +123,15 @@ public class CharController : MonoBehaviour {
     {
         //Debug.Log(grounded);
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        move = Input.GetAxis("Horizontal");
+        if (playerNumber == PlayerNum.player1)
+        {
+            move = Input.GetAxisRaw("Horizontal");
+        }
+        else if(playerNumber == PlayerNum.player2)
+        {
+            move = Input.GetAxisRaw("Horizontal2");
+        }
+        //Debug.Log("MOVE: " + move);
         //Moves Player left and right
         if (grounded)
         {
@@ -149,6 +199,7 @@ public class CharController : MonoBehaviour {
             }
             anim.SetBool("Rumbling", true);
             change = false;
+            checkIn = false;
         }
     }
 }

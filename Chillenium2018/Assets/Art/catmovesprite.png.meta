@@ -8,6 +8,7 @@ TextureImporter:
     21300006: catmovesprite_3
     21300008: catmovesprite_4
     21300010: catmovesprite_5
+    21300012: catmovesprite_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -95,16 +96,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 493
+        width: 450
         height: 450
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31f55d81483257141ad9a051f94b14df
+      spriteID: ee53dc5d7631e2246b52c26099233c9f
       vertices: []
       indices: 
       edges: []
@@ -113,18 +114,18 @@ TextureImporter:
       name: catmovesprite_1
       rect:
         serializedVersion: 2
-        x: 493
+        x: 450
         y: 0
-        width: 493
+        width: 450
         height: 450
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79b5132d8d2d4ba4fb76aa61a5214efc
+      spriteID: 2255dccad50cb9b4cb5d600a48f559d4
       vertices: []
       indices: 
       edges: []
@@ -133,18 +134,18 @@ TextureImporter:
       name: catmovesprite_2
       rect:
         serializedVersion: 2
-        x: 986
+        x: 900
         y: 0
-        width: 493
+        width: 450
         height: 450
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cac2cc5b966700a448cc3ddd5ce1eb81
+      spriteID: 213aa27b01cb23449b86f03e7dc3ee8b
       vertices: []
       indices: 
       edges: []
@@ -153,18 +154,18 @@ TextureImporter:
       name: catmovesprite_3
       rect:
         serializedVersion: 2
-        x: 1479
+        x: 1350
         y: 0
-        width: 493
+        width: 450
         height: 450
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 260169c9ad2675e41afaff15ef3be9a6
+      spriteID: 157503930e73943489fc046f4a0b577d
       vertices: []
       indices: 
       edges: []
@@ -173,18 +174,18 @@ TextureImporter:
       name: catmovesprite_4
       rect:
         serializedVersion: 2
-        x: 1972
+        x: 1800
         y: 0
-        width: 493
+        width: 450
         height: 450
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26cfb367901d96748a41250abae00cd9
+      spriteID: 9de4a5ae5a0a8154d8cda336f90a9c72
       vertices: []
       indices: 
       edges: []
@@ -193,18 +194,38 @@ TextureImporter:
       name: catmovesprite_5
       rect:
         serializedVersion: 2
-        x: 2465
+        x: 2250
         y: 0
-        width: 493
+        width: 450
         height: 450
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eeaa4faa80680a243ad8b22836eb90d6
+      spriteID: 3bbdc31b12c52774b87f635c3621310d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: catmovesprite_6
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: def0107d722809642ac194c5a1860ce0
       vertices: []
       indices: 
       edges: []
