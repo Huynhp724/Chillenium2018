@@ -87,8 +87,8 @@ public class StateManager : MonoBehaviour {
 		scoreText2.text = "P2 Score: " + GameManager.score_two;
 
 		//health
-		healthText.text = "P1 Health: " + players[0].GetComponent<PlayerChar>().GetHealth();
-		healthText2.text = "P2 Health: " + players[1].GetComponent<PlayerChar>().GetHealth();
+		//healthText.text = "P1 Health: " + players[0].GetComponent<PlayerChar>().GetHealth();
+		//healthText2.text = "P2 Health: " + players[1].GetComponent<PlayerChar>().GetHealth();
 
 		//ammo
 		for (int index = 1; index <= 5; index++) {
