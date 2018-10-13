@@ -70,22 +70,45 @@ public class Shoot : MonoBehaviour {
 
 		//FIRE
 		if (num_projectiles < max_projectiles) { //able to fire
-			if (Input.GetButtonDown ("Fire1")) {
-				FireProjectile ();
-				num_projectiles++;
-				timer = spam_time;
-
-                //Plays projectile sound
-                int clipNum = Random.Range(0, attackSFX.Length);
-                attackSources[audioCount].clip = attackSFX[clipNum];
-                attackSources[audioCount].Play(0);
-                audioCount++;
-                if(audioCount >= attackSFX.Length)
+            if (gameObject.GetComponent<CharController>().playerNumber == CharController.PlayerNum.player1)
+            {
+                if (Input.GetButtonDown("Fire1"))
                 {
-                    audioCount = 0;
+                    FireProjectile();
+                    num_projectiles++;
+                    timer = spam_time;
+
+                    //Plays projectile sound
+                    int clipNum = Random.Range(0, attackSFX.Length);
+                    attackSources[audioCount].clip = attackSFX[clipNum];
+                    attackSources[audioCount].Play(0);
+                    audioCount++;
+                    if (audioCount >= attackSFX.Length)
+                    {
+                        audioCount = 0;
+                    }
                 }
-			}
-		} else { //cannot fire; spam
+            }
+            else if (gameObject.GetComponent<CharController>().playerNumber == CharController.PlayerNum.player2)
+            {
+                if (Input.GetButtonDown("Fire1_2"))
+                {
+                    FireProjectile();
+                    num_projectiles++;
+                    timer = spam_time;
+
+                    //Plays projectile sound
+                    int clipNum = Random.Range(0, attackSFX.Length);
+                    attackSources[audioCount].clip = attackSFX[clipNum];
+                    attackSources[audioCount].Play(0);
+                    audioCount++;
+                    if (audioCount >= attackSFX.Length)
+                    {
+                        audioCount = 0;
+                    }
+                }
+            }
+        } else { //cannot fire; spam
 
 		}
 
