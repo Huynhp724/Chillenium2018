@@ -11,30 +11,76 @@ public class CharController : MonoBehaviour {
     bool facingRight = true; //direction char is facing
     bool jumped = false; //turns to true when button is pressed
     bool grounded = false; //is Player in air
+    bool change = false; 
     public Transform groundCheck;
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
     public Transform SpawnLocation;
+    Entity.Element type;
 
     Rigidbody2D rb;
     SpriteRenderer spr;
     Animator anim;
+    Entity ent;
+    AudioSource aud;
 
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
         spr = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
+        type = gameObject.GetComponent<Entity>().type;
+        ent = gameObject.GetComponent<Entity>();
+        aud = gameObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Jump") && grounded)
+        
+        if ((Input.GetButtonDown("Jump")||Input.GetAxisRaw("Vertical") == 1) && grounded)
         {
-            Debug.Log("Jump");
             jumped = true;
         }
-	}
+        Debug.Log(Input.GetAxisRaw("DpadX"));
+        if(Input.GetAxisRaw("DpadX") < 0 && type != Entity.Element.bass)
+        {
+            ent.changeType(Entity.Element.bass);
+            change = true;
+        }
+        if (Input.GetAxisRaw("DpadX") > 0 && type != Entity.Element.horn)
+        {
+            ent.changeType(Entity.Element.horn);
+            change = true;
+        }
+        if (Input.GetAxisRaw("DpadY") > 0 && type != Entity.Element.guitar)
+        {
+            ent.changeType(Entity.Element.guitar);
+            change = true;
+        }
+        type = gameObject.GetComponent<Entity>().type;
+
+        //TRANSFORMATION
+        if (change)
+        {
+            if(type == Entity.Element.bass)
+            {
+                anim.SetInteger("Form", -1);
+            }
+            if (type == Entity.Element.guitar)
+            {
+                anim.SetInteger("Form", 0);
+            }
+            if (type == Entity.Element.horn)
+            {
+                anim.SetInteger("Form", 1);
+            }
+            anim.SetBool("Rumbling", true);
+            change = false;
+        }
+
+
+
+    }
 
     private void FixedUpdate()
     {
@@ -57,7 +103,7 @@ public class CharController : MonoBehaviour {
         //Jump
         if (jumped)
         {
-            Debug.Log("JUMP");
+           
             rb.velocity = new Vector2(0.0f, jumpForce);
             jumped = false;
         }
@@ -80,5 +126,12 @@ public class CharController : MonoBehaviour {
             transform.localScale.y,
             transform.localScale.z);
         }
+
+    }
+
+    public void changeRumble()
+    {
+        Debug.Log("NO RUMBLE");
+        anim.SetBool("Rumbling", false);
     }
 }

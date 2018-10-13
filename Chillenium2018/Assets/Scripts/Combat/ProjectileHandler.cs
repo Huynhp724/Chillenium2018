@@ -26,9 +26,22 @@ public class ProjectileHandler : MonoBehaviour {
 		}
 	}
 	void OnCollisionEnter2D(Collision2D col){
-		Debug.Log ("collision");
+		if (col.gameObject == source)
+			return;
+        if (col.gameObject.GetComponent<Entity>() == null)
+        {
+            Debug.Log("Collider doesn't have Entity");
+            return;
+        }
+		if (col.gameObject.tag.Equals ("Player")) {
+			Debug.Log ("hit player");
+			Destroy (gameObject);
+			return;
+		}
         Entity.Element myType = gameObject.GetComponent<Entity>().type;
-        Entity.Element otherType = col.gameObject.GetComponent<Entity>().type;
+		Entity.Element otherType = col.gameObject.GetComponent<Entity>().type;		
+        
+		Debug.Log ("collision with " + otherType);
 
         if (col.gameObject != source)Destroy (gameObject);
 	}
