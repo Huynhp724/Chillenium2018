@@ -58,7 +58,7 @@ public class CharController : MonoBehaviour {
         if (jumped)
         {
             Debug.Log("JUMP");
-            rb.AddForce(new Vector2(0.0f, jumpForce));
+            rb.velocity = new Vector2(0.0f, jumpForce);
             jumped = false;
         }
 
