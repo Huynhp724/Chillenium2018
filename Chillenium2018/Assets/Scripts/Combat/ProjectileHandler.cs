@@ -12,7 +12,7 @@ public class ProjectileHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		timer = 1f;
+		timer = death_timer;
 	}
 	
 	// Update is called once per frame
@@ -26,10 +26,40 @@ public class ProjectileHandler : MonoBehaviour {
 		}
 	}
 	void OnCollisionEnter2D(Collision2D col){
-		Debug.Log ("collision");
+		if (col.gameObject == source)
+			return;
+		if (col.gameObject.tag.Equals ("Player")) {
+			Debug.Log ("hit player");
+			Destroy (gameObject);
+			return;
+		}
         Entity.Element myType = gameObject.GetComponent<Entity>().type;
-        Entity.Element otherType = col.gameObject.GetComponent<Entity>().type;
+		Entity.Element otherType = col.gameObject.GetComponent<Entity>().type;		
+		Debug.Log ("collision with " + otherType);
 
-        if (col.gameObject != source)Destroy (gameObject);
+		if (otherType == myType) { //if same type, destroy both
+			Destroy (gameObject);
+		}
+
+		//RPS:
+		//BASS beats GUITAR beats HORN beats...
+		if (myType == Entity.Element.guitar) { //if col is guitar
+			if (otherType == Entity.Element.bass) {		//horn beats guitar	
+				Debug.Log ("guitar lost to bass");
+				Destroy (gameObject);		
+			}
+		}
+		else if (myType == Entity.Element.bass) { //if col is bass
+			if (otherType == Entity.Element.horn) {	
+				Debug.Log ("bass lost to horn");
+				Destroy (gameObject);
+			}
+		}
+		else if (myType == Entity.Element.horn) { //if col is horn
+			if (otherType == Entity.Element.guitar){	
+				Debug.Log ("horn lost to guitar");
+				Destroy (gameObject);
+			}
+		}
 	}
 }
