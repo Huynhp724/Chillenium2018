@@ -21,6 +21,9 @@ public class CharController : MonoBehaviour {
     public PlayerNum playerNumber;
     Entity.Element type;
     Entity.Element changeType;
+    public AudioClip[] fishMoveSFX;
+    public AudioClip[] catMoveSFX;
+    public AudioClip[] birdMoveSFX;
 
     Rigidbody2D rb;
     SpriteRenderer spr;
@@ -202,5 +205,11 @@ public class CharController : MonoBehaviour {
         }
         change = false;
         checkIn = false;
+    }
+
+    public void playFishMovement()
+    {
+        aud.clip = fishMoveSFX[Random.Range(0, fishMoveSFX.Length)];
+        aud.Play();
     }
 }

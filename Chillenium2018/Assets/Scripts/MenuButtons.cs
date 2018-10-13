@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour {
 
+    public AudioSource aud;
+
 	public void PlayButton(){
-		SceneManager.LoadScene ("TestingGrounds");
+        SceneManager.LoadScene ("TestingGrounds");
 	}
 	public void QuitButton(){
-		Application.Quit ();
+        Application.Quit ();
 	}
 }

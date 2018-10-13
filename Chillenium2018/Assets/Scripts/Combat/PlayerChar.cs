@@ -18,7 +18,7 @@ public class PlayerChar : MonoBehaviour {
 	public Text debugTextHealth;
 	public Text debugTextScore;
 
-    public float blasterSpeed = 50f;
+    //public float blasterSpeed = 50f;
 
 	// Use this for initialization
 	void Start () {
