@@ -69,7 +69,7 @@ public class Shoot : MonoBehaviour {
 	}
 	void FireProjectile(){
 		GameObject projectileClone = (GameObject)Instantiate(projectile, spawnLocation.position, spawnLocation.rotation);
-        projectileClone.GetComponent<ProjectileHandler>().type = gameObject.GetComponent<PlayerChar>().type;
+        projectileClone.GetComponent<Entity>().type = gameObject.GetComponent<Entity>().type;
         projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * gameObject.GetComponent<PlayerChar>().blasterSpeed;
         projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
     }

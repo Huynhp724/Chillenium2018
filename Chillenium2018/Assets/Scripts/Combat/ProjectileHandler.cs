@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProjectileHandler : MonoBehaviour {
 
-    public PlayerChar.Element type;
     public GameObject source;
 
 	public float speed = 5f;
@@ -26,8 +25,11 @@ public class ProjectileHandler : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
-	void OnTriggerEnter2D(Collider2D col){
+	void OnCollisionEnter2D(Collision2D col){
 		Debug.Log ("collision");
-		if(col.gameObject != source)Destroy (gameObject);
+        Entity.Element myType = gameObject.GetComponent<Entity>().type;
+        Entity.Element otherType = col.gameObject.GetComponent<Entity>().type;
+
+        if (col.gameObject != source)Destroy (gameObject);
 	}
 }
