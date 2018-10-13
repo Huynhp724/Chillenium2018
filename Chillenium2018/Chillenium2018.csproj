@@ -308,6 +308,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Combat\CharController.cs" />
+    <Compile Include="Assets\Scripts\Combat\PlayerChar.cs" />
+    <Compile Include="Assets\Scripts\Combat\ProjectileHandler.cs" />
+    <Compile Include="Assets\Scripts\Combat\Shoot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

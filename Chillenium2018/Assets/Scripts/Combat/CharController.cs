@@ -14,6 +14,7 @@ public class CharController : MonoBehaviour {
     public Transform groundCheck;
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
+    public Transform SpawnLocation;
 
     Rigidbody2D rb;
     SpriteRenderer spr;
@@ -64,13 +65,19 @@ public class CharController : MonoBehaviour {
         //flip if moving other way
         if(move < 0 && facingRight)
         {
-            spr.flipX = true;
             facingRight = false;
+            transform.localScale = new Vector3(
+          transform.localScale.x * -1,
+          transform.localScale.y,
+          transform.localScale.z);
         }
         if(move > 0 && !facingRight)
         {
-            spr.flipX = false;
             facingRight = true;
+            transform.localScale = new Vector3(
+            transform.localScale.x * -1,
+            transform.localScale.y,
+            transform.localScale.z);
         }
     }
 }
