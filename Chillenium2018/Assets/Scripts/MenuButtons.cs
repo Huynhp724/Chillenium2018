@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class MenuButtons : MonoBehaviour {
 
 	public void PlayButton(){
-		SceneManager.LoadScene ("Testing Grounds");
+		SceneManager.LoadScene ("TestingGrounds");
 	}
-	public void Quit(){
+	public void QuitButton(){
 		Application.Quit ();
 	}
 }
