@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 881, y: 492}
-  m_MaxSize: {x: 18002, y: 14042}
+  m_MinSize: {x: 883, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 1237
+  controlID: 1606
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 606, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
-  controlID: 1238
+  controlID: 1607
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 606, y: 221}
   m_MaxSize: {x: 12006, y: 4021}
   vertical: 0
-  controlID: 1239
+  controlID: 1608
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -204,9 +204,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 36320000
-    m_LastClickedID: 12854
-    m_ExpandedIDs: 0cfaffff0000000036320000483200006a32000074320000
+    m_SelectedIDs: 74d4ffff
+    m_LastClickedID: -11148
+    m_ExpandedIDs: 0af9ffff0cf9ffffdefbffff000000000e310000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -248,8 +248,8 @@ MonoBehaviour:
     y: 0
     width: 660
     height: 638
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -282,14 +282,14 @@ MonoBehaviour:
     height: 617
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 744.3543157233154
+  lastFramingTime: 518.9544267740908
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.25309882, y: -0.47642574, z: -0.033637352}
+    m_Target: {x: 161.9954, y: 516.92755, z: -2}
     speed: 2
-    m_Value: {x: -0.25309882, y: -0.47642574, z: -0.033637352}
+    m_Value: {x: 161.9954, y: 516.92755, z: -2}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -321,9 +321,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.4747818
+    m_Target: 1510.7712
     speed: 2
-    m_Value: 2.4747818
+    m_Value: 1510.7712
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_MinSize: {x: 332, y: 271}
   m_MaxSize: {x: 14002, y: 10021}
   vertical: 0
-  controlID: 1175
+  controlID: 1537
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -487,8 +487,8 @@ MonoBehaviour:
     y: 0
     width: 750
     height: 309
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -533,20 +533,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/Combat
   m_ViewMode: 1
   m_StartGridSize: 87
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/Combat
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Taylor Hobbs\Desktop\Chillenium2018\Chillenium2018
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 762d0000
-    m_LastClickedID: 11638
-    m_ExpandedIDs: 00000000802c00007c2d0000b42e0000722f0000ba31000000ca9a3b
+    m_SelectedIDs: 100c0000
+    m_LastClickedID: 3088
+    m_ExpandedIDs: 00000000b0090000ac0a0000f60b0000b40c0000100f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -574,7 +574,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000802c00007c2d0000b42e0000722f0000ba31000000ca9a3b
+    m_ExpandedIDs: 00000000b0090000ac0a0000f60b0000b40c0000100f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -599,9 +599,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 36320000
-    m_LastClickedInstanceID: 12854
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 74d4ffff
+    m_LastClickedInstanceID: -11148
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000e02d0000462e0000762b0000aacc47ffdc3300006c2e0000dc2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -789,8 +789,8 @@ MonoBehaviour:
     y: 0
     width: 726
     height: 309
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 104, y: 121}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -824,7 +824,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 12854
+  m_LastSelectedObjectID: -11148
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -843,8 +843,8 @@ MonoBehaviour:
     y: 0
     width: 444
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}

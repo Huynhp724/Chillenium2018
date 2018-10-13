@@ -28,15 +28,16 @@ public class ProjectileHandler : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject == source)
 			return;
-		if (col.gameObject.tag.Equals ("Player")) {
-			Debug.Log ("hit player");
-			Destroy (gameObject);
-			return;
-		}
         Entity.Element myType = gameObject.GetComponent<Entity>().type;
 		Entity.Element otherType = col.gameObject.GetComponent<Entity>().type;		
 		Debug.Log ("collision with " + otherType);
 
+		if (col.gameObject.tag.Equals ("Player")) {
+			Debug.Log ("hit player");
+			col.gameObject.GetComponent<PlayerChar> ().DamagePlayer (myType);
+			Destroy (gameObject);
+			return;
+		}
 		if (otherType == myType) { //if same type, destroy both
 			Destroy (gameObject);
 		}
@@ -44,7 +45,7 @@ public class ProjectileHandler : MonoBehaviour {
 		//RPS:
 		//BASS beats GUITAR beats HORN beats...
 		if (myType == Entity.Element.guitar) { //if col is guitar
-			if (otherType == Entity.Element.bass) {		//horn beats guitar	
+			if (otherType == Entity.Element.bass) {
 				Debug.Log ("guitar lost to bass");
 				Destroy (gameObject);		
 			}
