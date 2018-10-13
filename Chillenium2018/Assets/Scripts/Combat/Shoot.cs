@@ -7,16 +7,29 @@ public class Shoot : MonoBehaviour {
 	public GameObject projectile;
     public Transform spawnLocation;
 	public Text projectiles_remaining;
+    public AudioClip[] attackSFX;
+    AudioSource[] attackSources;
+    int audioCount = 0;
 
-	public int max_projectiles = 5;
+    public int max_projectiles = 5;
 	int num_projectiles = 0;
 
 	float timer;
 	public float reload_time = 0.25f;
 	public float spam_time = 0.75f;
+    public float blasterSpeed = 20f;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        attackSources = new AudioSource[attackSFX.Length];
+       for(int i = 0; i < attackSFX.Length; i++)
+        {
+            attackSources[i] = gameObject.AddComponent<AudioSource>();
+            attackSources[i].volume = 0.05f;
+        }
+    }
+    // Use this for initialization
+    void Start () {
 		timer = reload_time;
 	}
 	
@@ -61,6 +74,16 @@ public class Shoot : MonoBehaviour {
 				FireProjectile ();
 				num_projectiles++;
 				timer = spam_time;
+
+                //Plays projectile sound
+                int clipNum = Random.Range(0, attackSFX.Length);
+                attackSources[audioCount].clip = attackSFX[clipNum];
+                attackSources[audioCount].Play(0);
+                audioCount++;
+                if(audioCount >= attackSFX.Length)
+                {
+                    audioCount = 0;
+                }
 			}
 		} else { //cannot fire; spam
 
@@ -70,7 +93,7 @@ public class Shoot : MonoBehaviour {
 	void FireProjectile(){
 		GameObject projectileClone = (GameObject)Instantiate(projectile, spawnLocation.position, spawnLocation.rotation);
         projectileClone.GetComponent<Entity>().type = gameObject.GetComponent<Entity>().type;
-        projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * gameObject.GetComponent<PlayerChar>().blasterSpeed;
+        projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
         projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
     }
 }

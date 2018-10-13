@@ -28,10 +28,11 @@ public class ProjectileHandler : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject == source)
 			return;
-        Entity.Element myType = gameObject.GetComponent<Entity>().type;
-		Entity.Element otherType = col.gameObject.GetComponent<Entity>().type;		
-		Debug.Log ("collision with " + otherType);
-
+        if (col.gameObject.GetComponent<Entity>() == null)
+        {
+            Debug.Log("Collider doesn't have Entity");
+            return;
+        }
 		if (col.gameObject.tag.Equals ("Player")) {
 			Debug.Log ("hit player");
 			Vector2 dir = col.contacts [0].point - new Vector2(transform.position.x, transform.position.y); //calculate angle of contact
@@ -42,6 +43,11 @@ public class ProjectileHandler : MonoBehaviour {
 			Destroy (gameObject);
 			return;
 		}
+        Entity.Element myType = gameObject.GetComponent<Entity>().type;
+		Entity.Element otherType = col.gameObject.GetComponent<Entity>().type;		
+        
+		Debug.Log ("collision with " + otherType);
+
 		if (otherType == myType) { //if same type, destroy both
 			Destroy (gameObject);
 		}
