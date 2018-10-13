@@ -15,6 +15,8 @@ public class PlayerChar : MonoBehaviour {
 	public int damageFromWeakness = 3;
 	public int damageFromStrength = 1;
 
+	public float knockbackForce = 1f;
+
 	public Text debugTextHealth;
 	public Text debugTextScore;
 
@@ -34,12 +36,15 @@ public class PlayerChar : MonoBehaviour {
 		debugTextScore.text = "SCORE: " + score;
 	}
 
-	public void DamagePlayer(Entity.Element otherType){
+	public void DamagePlayer(Entity.Element otherType, Vector2 knockbackDir){
+		Vector2 appliedForce = Vector2.zero; //total knockback force to be added
+
 		Entity.Element myType = gameObject.GetComponent<Entity>().type;
 		Debug.Log ("collision with " + otherType);
 
 		if (otherType == myType) { //if same type
 			health -= damageFromSame;
+			appliedForce = knockbackDir * knockbackForce * damageFromSame;
 		}
 
 		//RPS:
@@ -48,29 +53,39 @@ public class PlayerChar : MonoBehaviour {
 			if (otherType == Entity.Element.bass) {	
 				Debug.Log ("guitar weak to bass");
 				health -= damageFromWeakness;
+				appliedForce = knockbackDir * knockbackForce * damageFromWeakness;
 			} else if (otherType == Entity.Element.horn) {
 				Debug.Log ("guitar strong against horn");
 				health -= damageFromStrength;
+				appliedForce = knockbackDir * knockbackForce * damageFromStrength;
 			}
 		}
 		else if (myType == Entity.Element.bass) { //if col is bass
 			if (otherType == Entity.Element.horn) {	
 				Debug.Log ("bass weak to horn");
 				health -= damageFromWeakness;
+				appliedForce = knockbackDir * knockbackForce * damageFromWeakness;
 			} else if (otherType == Entity.Element.guitar) {
 				Debug.Log ("bass strong against guitar");
 				health -= damageFromStrength;
+				appliedForce = knockbackDir * knockbackForce * damageFromStrength;
 			}
 		}
 		else if (myType == Entity.Element.horn) { //if col is horn
 			if (otherType == Entity.Element.guitar){	
 				Debug.Log ("horn weak to guitar");
 				health -= damageFromWeakness;
+				appliedForce = knockbackDir * knockbackForce * damageFromWeakness;
 			} else if (otherType == Entity.Element.bass) {
 				Debug.Log ("horn strong against bass");
 				health -= damageFromStrength;
+				appliedForce = knockbackDir * knockbackForce * damageFromStrength;
 			}
 		}
+
+		appliedForce.y *= .1f; //dampen y force
+		Debug.Log (appliedForce);
+		GetComponent<Rigidbody2D> ().AddForce(appliedForce);
 	}
 
 	void Death(){

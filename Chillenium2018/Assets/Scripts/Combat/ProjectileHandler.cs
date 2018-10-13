@@ -34,7 +34,11 @@ public class ProjectileHandler : MonoBehaviour {
 
 		if (col.gameObject.tag.Equals ("Player")) {
 			Debug.Log ("hit player");
-			col.gameObject.GetComponent<PlayerChar> ().DamagePlayer (myType);
+			Vector2 dir = col.contacts [0].point - new Vector2(transform.position.x, transform.position.y); //calculate angle of contact
+			Debug.Log("dir: " + dir);
+			dir.Normalize(); //change magnitude to 1
+			Debug.Log("normalized dir: " + dir);
+			col.gameObject.GetComponent<PlayerChar> ().DamagePlayer (myType, dir); //send type of projectile and direction for knockback
 			Destroy (gameObject);
 			return;
 		}
