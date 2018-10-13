@@ -54,10 +54,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Combat\CharController.cs" />
+     <Compile Include="Assets\Scripts\Combat\Entity.cs" />
      <Compile Include="Assets\Scripts\Combat\PlayerChar.cs" />
      <Compile Include="Assets\Scripts\Combat\ProjectileHandler.cs" />
      <Compile Include="Assets\Scripts\Combat\Shoot.cs" />
      <Compile Include="Assets\Scripts\MenuButtons.cs" />
+     <Compile Include="Assets\Scripts\StateManager.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Taylor Hobbs/Desktop/Chillenium2018/Chillenium2018/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
