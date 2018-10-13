@@ -65,6 +65,7 @@ public class CharController : MonoBehaviour {
         //flip if moving other way
         if(move < 0 && facingRight)
         {
+            //spr.flipX = true;
             facingRight = false;
             transform.localScale = new Vector3(
           transform.localScale.x * -1,
