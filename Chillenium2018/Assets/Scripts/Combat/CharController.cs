@@ -58,13 +58,14 @@ public class CharController : MonoBehaviour {
         if (jumped)
         {
             Debug.Log("JUMP");
-            rb.AddForce(new Vector2(0.0f, jumpForce));
+            rb.velocity = new Vector2(0.0f, jumpForce);
             jumped = false;
         }
 
         //flip if moving other way
         if(move < 0 && facingRight)
         {
+            //spr.flipX = true;
             facingRight = false;
             transform.localScale = new Vector3(
           transform.localScale.x * -1,

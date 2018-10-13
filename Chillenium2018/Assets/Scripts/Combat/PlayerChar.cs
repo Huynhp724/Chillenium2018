@@ -1,23 +1,96 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class PlayerChar : MonoBehaviour {
+	public int score = 0;
 
-    public enum Element{bass, guitar, horn};
-    public Element type;
+	public Vector2 spawn;
+   
     public int maxHealth = 10;
-    public int health = 10;
+	public int health;
+
+	public int damageFromSame = 2;
+	public int damageFromWeakness = 3;
+	public int damageFromStrength = 1;
+
+	public float knockbackForce = 1f;
+
+	public Text debugTextHealth;
+	public Text debugTextScore;
+
     public float blasterSpeed = 50f;
 
 	// Use this for initialization
 	void Start () {
-		
+		health = maxHealth;
+		spawn = new Vector2 (transform.position.x, transform.position.y);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (health <= 0)
+			Death ();
+		debugTextHealth.text = "HEALTH: " + health;
+		debugTextScore.text = "SCORE: " + score;
+	}
+
+	public void DamagePlayer(Entity.Element otherType, Vector2 knockbackDir){
+		Vector2 appliedForce = Vector2.zero; //total knockback force to be added
+
+		Entity.Element myType = gameObject.GetComponent<Entity>().type;
+		Debug.Log ("collision with " + otherType);
+
+		if (otherType == myType) { //if same type
+			health -= damageFromSame;
+			appliedForce = knockbackDir * knockbackForce * damageFromSame;
+		}
+
+		//RPS:
+		//BASS beats GUITAR beats HORN beats...
+		if (myType == Entity.Element.guitar) { //if col is guitar
+			if (otherType == Entity.Element.bass) {	
+				Debug.Log ("guitar weak to bass");
+				health -= damageFromWeakness;
+				appliedForce = knockbackDir * knockbackForce * damageFromWeakness;
+			} else if (otherType == Entity.Element.horn) {
+				Debug.Log ("guitar strong against horn");
+				health -= damageFromStrength;
+				appliedForce = knockbackDir * knockbackForce * damageFromStrength;
+			}
+		}
+		else if (myType == Entity.Element.bass) { //if col is bass
+			if (otherType == Entity.Element.horn) {	
+				Debug.Log ("bass weak to horn");
+				health -= damageFromWeakness;
+				appliedForce = knockbackDir * knockbackForce * damageFromWeakness;
+			} else if (otherType == Entity.Element.guitar) {
+				Debug.Log ("bass strong against guitar");
+				health -= damageFromStrength;
+				appliedForce = knockbackDir * knockbackForce * damageFromStrength;
+			}
+		}
+		else if (myType == Entity.Element.horn) { //if col is horn
+			if (otherType == Entity.Element.guitar){	
+				Debug.Log ("horn weak to guitar");
+				health -= damageFromWeakness;
+				appliedForce = knockbackDir * knockbackForce * damageFromWeakness;
+			} else if (otherType == Entity.Element.bass) {
+				Debug.Log ("horn strong against bass");
+				health -= damageFromStrength;
+				appliedForce = knockbackDir * knockbackForce * damageFromStrength;
+			}
+		}
+
+		appliedForce.y *= .1f; //dampen y force
+		Debug.Log (appliedForce);
+		GetComponent<Rigidbody2D> ().AddForce(appliedForce);
+	}
+
+	void Death(){
+		score++;
+		transform.SetPositionAndRotation (new Vector3 (spawn.x, spawn.y, transform.position.z), transform.rotation);
+		health = maxHealth;
 	}
 }
