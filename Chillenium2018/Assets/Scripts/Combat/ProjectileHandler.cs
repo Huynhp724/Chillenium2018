@@ -33,17 +33,13 @@ public class ProjectileHandler : MonoBehaviour {
             Debug.Log("Collider doesn't have Entity");
             return;
         }
+		Entity.Element myType = gameObject.GetComponent<Entity>().type;
 		if (col.gameObject.tag.Equals ("Player")) {
 			Debug.Log ("hit player");
-			Vector2 dir = col.contacts [0].point - new Vector2(transform.position.x, transform.position.y); //calculate angle of contact
-			Debug.Log("dir: " + dir);
-			dir.Normalize(); //change magnitude to 1
-			Debug.Log("normalized dir: " + dir);
-			//col.gameObject.GetComponent<PlayerChar> ().DamagePlayer (myType, dir); //send type of projectile and direction for knockback
+			col.gameObject.GetComponent<PlayerChar> ().DamagePlayer (myType); 
 			Destroy (gameObject);
 			return;
 		}
-        Entity.Element myType = gameObject.GetComponent<Entity>().type;
 		Entity.Element otherType = col.gameObject.GetComponent<Entity>().type;		
         
 		Debug.Log ("collision with " + otherType);
