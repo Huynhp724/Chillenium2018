@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class Shoot : MonoBehaviour {
 	public GameObject projectile;
     public Transform spawnLocation;
-	public Text projectiles_remaining;
     public AudioClip[] attackSFX;
     AudioSource[] attackSources;
     int audioCount = 0;
 
-    public int max_projectiles = 5;
-	int num_projectiles = 0;
+	public int max_projectiles = 5;
+	public int num_projectiles = 0;
+	public int projectiles_remaining = 5;
 
 	float timer;
 	public float reload_time = 0.25f;
@@ -38,7 +38,8 @@ public class Shoot : MonoBehaviour {
 
 		//TEMP DISPLAY
 		string t = "";
-		switch (max_projectiles - num_projectiles) {
+		projectiles_remaining = max_projectiles - num_projectiles;
+		switch (projectiles_remaining) {
 		case 0:
 			t = "- - - - -";
 			break;
@@ -58,7 +59,6 @@ public class Shoot : MonoBehaviour {
 			t = "+ + + + +";
 			break;
 		}
-		projectiles_remaining.text = "Timer: " + timer + "\nActive: " + num_projectiles + "\nRemaining: " + (max_projectiles - num_projectiles) + "\n" + t;
 
 		//TIMER
 		if(timer > 0f)

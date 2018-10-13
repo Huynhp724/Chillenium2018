@@ -15,9 +15,6 @@ public class PlayerChar : MonoBehaviour {
 	public int damageFromWeakness = 3;
 	public int damageFromStrength = 1;
 
-	public Text debugTextHealth;
-	public Text debugTextScore;
-
     public float blasterSpeed = 50f;
 
 	// Use this for initialization
@@ -30,8 +27,6 @@ public class PlayerChar : MonoBehaviour {
 	void Update () {
 		if (health <= 0)
 			Death ();
-		debugTextHealth.text = "HEALTH: " + health;
-		debugTextScore.text = "SCORE: " + score;
 	}
 
 	public void DamagePlayer(GameObject shooter, Entity.Element otherType){
@@ -80,9 +75,16 @@ public class PlayerChar : MonoBehaviour {
         }
     }
 
+	//TODO: SETTERS AND GETTERS
+	public int GetHealth(){return health;}
+
 	void Death(){
-		
+		if (gameObject.GetComponent<CharController> ().playerNumber.Equals (CharController.PlayerNum.player1))
+			GameManager.score_two++;
+		else
+			GameManager.score_one++;
 		transform.SetPositionAndRotation (new Vector3 (spawn.x, spawn.y, transform.position.z), transform.rotation);
 		health = maxHealth;
+		GameManager.ResetScene (); //TEMPORARY
 	}
 }
