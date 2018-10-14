@@ -18,6 +18,9 @@ public class StateManager : MonoBehaviour {
 	public Image portrait, portrait2;
 	public Sprite bird, cat, fish;
 
+	public GameObject arrow;
+	Image arrowImg;
+
 	public GameObject pause;
 
     public float countdownTime; //How long between each "phase"
@@ -43,11 +46,12 @@ public class StateManager : MonoBehaviour {
         Physics2D.gravity = new Vector3(0.0f, gravityForce, 0.0f);
 		counter = checkInTime + 1f;
         // players = GameObject.FindGameObjectsWithTag("Player");
-        checkInText.text = "Standby...";
-        checkInText2.text = "Standby...";
+        checkInText.text = "";
+        checkInText2.text = "";
         clipTracker = countdownClips.Length;
 		checkAmmo();
 		StartCoroutine (Waiting ());
+		arrowImg = arrow.gameObject.GetComponentInChildren<Image> ();
     }
 	
 	// Update is called once per frame
@@ -83,12 +87,39 @@ public class StateManager : MonoBehaviour {
 			switch (players [0].GetComponent<Entity> ().type) {
 			case Entity.Element.bass:
 				portrait.sprite = fish;
+				if (players [1].GetComponent<Entity> ().type == Entity.Element.guitar) {
+					arrow.SetActive (true);
+					arrowImg.transform.localScale = new Vector2 (1f, 1f);
+				} else if (players [1].GetComponent<Entity> ().type == Entity.Element.bass) {
+					arrow.SetActive (false);
+				} else if (players [1].GetComponent<Entity> ().type == Entity.Element.horn) {
+					arrow.SetActive (true);
+					arrowImg.transform.localScale = new Vector2 (-1f, 1f);
+				}
 				break;
 			case Entity.Element.guitar:
 				portrait.sprite = cat;
+				if (players [1].GetComponent<Entity> ().type == Entity.Element.guitar) {
+					arrow.SetActive (false);
+				} else if (players [1].GetComponent<Entity> ().type == Entity.Element.bass) {
+					arrow.SetActive (true);
+					arrowImg.transform.localScale = new Vector2 (-1f, 1f);
+				} else if (players [1].GetComponent<Entity> ().type == Entity.Element.horn) {
+					arrow.SetActive (true);
+					arrowImg.transform.localScale = new Vector2 (1f, 1f);
+				}
 				break;
 			case Entity.Element.horn:
 				portrait.sprite = bird;
+				if (players [1].GetComponent<Entity> ().type == Entity.Element.guitar) {
+					arrow.SetActive (true);
+					arrowImg.transform.localScale = new Vector2 (-1f, 1f);
+				} else if (players [1].GetComponent<Entity> ().type == Entity.Element.bass) {
+					arrow.SetActive (true);
+					arrowImg.transform.localScale = new Vector2 (1f, 1f);
+				} else if (players [1].GetComponent<Entity> ().type == Entity.Element.horn) {
+					arrow.SetActive (false);
+				}
 				break;
 			}
 			switch (players [1].GetComponent<Entity> ().type) {
@@ -102,6 +133,14 @@ public class StateManager : MonoBehaviour {
 				portrait2.sprite = bird;
 				break;
 			}
+		}
+
+		if (counter <= 4 && counter > 3 || (counter <= 2 && counter > 0)) {
+			checkInText.text = "TRANSFORM NOW!";
+			checkInText2.text = "TRANSFORM NOW!";
+		} else if (counter <= 3 && counter > 2) {
+			checkInText.text = "";
+			checkInText2.text = "";
 		}
        
         //If player locks in, update their lock in message
@@ -128,8 +167,8 @@ public class StateManager : MonoBehaviour {
             counter = countdownTime;
             timerText.color = Color.white;
             canChange = false;
-            checkInText.text = "Standby...";
-            checkInText2.text = "Standby...";
+            checkInText.text = "";
+            checkInText2.text = "";
             clipTracker = countdownClips.Length;
         }
 
