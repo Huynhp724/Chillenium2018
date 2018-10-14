@@ -37,7 +37,7 @@ public class PlayerChar : MonoBehaviour {
 		} else {
 			index = PlayerIndex.Two;
 		}
-		//StartCoroutine(Vibrate (0.1f, 0f));
+		StartCoroutine(Vibrate (0.1f, 0f));
 		winText.gameObject.SetActive(false);
 		health = maxHealth;
 		spawn = new Vector2 (transform.position.x, transform.position.y);
