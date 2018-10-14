@@ -11,6 +11,7 @@ public class PlayerChar : MonoBehaviour {
    
     public int maxHealth = 10;
 	public int health;
+	public Transform healthBar;
 
 	public int damageFromSame = 2;
 	public int damageFromWeakness = 3;
@@ -33,6 +34,9 @@ public class PlayerChar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//GUI.Label(new Rect(healthBar.transform.x, healthBar.transform.y, healthBar.localScale.x * ((float)health/(float)(maxHealth)), healthBar.localScale.y), "text");
+		healthBar.transform.localScale = new Vector2(((float)health/(float)(maxHealth)),healthBar.transform.localScale.y);
+		Debug.Log (healthBar.transform.localScale);
 		if (health <= 0)
 			Death ();
 	}
