@@ -18,6 +18,8 @@ public class StateManager : MonoBehaviour {
 	public Image portrait, portrait2;
 	public Sprite bird, cat, fish;
 
+	public GameObject pause;
+
     public float countdownTime; //How long between each "phase"
     public float checkInTime; //When player can check in
     float counter;
@@ -37,6 +39,7 @@ public class StateManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+		Time.timeScale = 1;
         Physics2D.gravity = new Vector3(0.0f, gravityForce, 0.0f);
 		counter = checkInTime + 1f;
         // players = GameObject.FindGameObjectsWithTag("Player");
@@ -54,7 +57,15 @@ public class StateManager : MonoBehaviour {
 			int counterNum = (int)counter;
 			timerText.text = counterNum.ToString ();
 			counter -= Time.deltaTime;
-
+			if(Input.GetButtonDown("Submit")){
+				if(Time.timeScale == 1){
+					Time.timeScale = 0;
+					pause.SetActive(true);
+				}else if(Time.timeScale == 0){
+					Time.timeScale = 1;
+					pause.SetActive(false);
+				}
+			}
 			//If counter gets to check in time, allows player to lock in a choice
 			if (counterNum < countdownClips.Length && clipTracker != counterNum) {
 				canChange = true;
