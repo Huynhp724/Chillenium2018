@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Projectile
   - StateManager
+  - Wall
   layers:
   - Default
   - TransparentFX

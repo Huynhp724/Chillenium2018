@@ -25,7 +25,15 @@ public class ProjectileHandler : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
-	void OnCollisionEnter2D(Collision2D col){
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Wall")
+        {
+         
+            Destroy(gameObject);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject == source)
 			return;
         if (col.gameObject.GetComponent<Entity>() == null)
@@ -45,7 +53,8 @@ public class ProjectileHandler : MonoBehaviour {
 		Debug.Log ("collision with " + otherType);
 
 		if (otherType == myType) { //if same type, destroy both
-			Destroy (gameObject);
+       
+            Destroy (gameObject);
 		}
 
 		//RPS:
