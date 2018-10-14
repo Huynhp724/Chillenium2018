@@ -32,6 +32,7 @@ public class CharController : MonoBehaviour {
     public AudioClip catLandSFX;
     public AudioClip birdLandSFX;
     public AudioClip rustleSFX;
+    public Light myLight;
 
     Rigidbody2D rb;
     SpriteRenderer spr;
@@ -260,6 +261,30 @@ public class CharController : MonoBehaviour {
     {
         aud.clip = rustleSFX;
         aud.Play();
+    }
+
+    public void glow()
+    {
+        myLight.intensity += 10;
+        if (type == Entity.Element.bass)
+        {
+            myLight.color = new Color(0 / 255f, 109 / 255f, 255/ 255f);
+        }
+        if (type == Entity.Element.guitar)
+        {
+            myLight.color = new Color(255 / 255f, 91 / 255f, 76/ 255f);
+        }
+        if (type == Entity.Element.horn)
+        {
+            myLight.color = new Color(76 / 255f, 255 / 255f, 91 / 255f);
+        }
+       
+    }
+
+    public void deGlow()
+    {
+        myLight.intensity = 7;
+        myLight.color = Color.white;
     }
 
 }

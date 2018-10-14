@@ -746,6 +746,55 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7401be3424c169841ac683691dbe477c, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &655656023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 655656025}
+  - component: {fileID: 655656024}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!50 &655656024
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 655656023}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!4 &655656025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 655656023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5173945, y: 3.1963716, z: -0.0625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &704002893 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1698767603124740, guid: 9faf1b7bb14a2814aa3d4f29a33e075e,
@@ -1118,6 +1167,36 @@ Prefab:
       propertyPath: players.Array.data[1]
       value: 
       objectReference: {fileID: 994550478}
+    - target: {fileID: 114978235205972402, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114978235205972402, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 114978235205972402, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.03964428
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942484568409142, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942484568409142, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.82745105
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942484568409142, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.039215688
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fccb8cbba0fef7d49b3a06a4dea20586, type: 2}
   m_IsPrefabAsset: 0
@@ -1175,11 +1254,6 @@ Prefab:
       propertyPath: deathAud
       value: 
       objectReference: {fileID: 78066460}
-    - target: {fileID: 114456090004235876, guid: 88f426ada9ecc50408e9cbc75155e238,
-        type: 2}
-      propertyPath: playerNumber
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f426ada9ecc50408e9cbc75155e238, type: 2}
   m_IsPrefabAsset: 0
@@ -1250,7 +1324,7 @@ Prefab:
     - target: {fileID: 114596256070878292, guid: 6c1cc04ee886bc549ab36d78e41d0d51,
         type: 2}
       propertyPath: offset.y
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114596256070878292, guid: 6c1cc04ee886bc549ab36d78e41d0d51,
         type: 2}

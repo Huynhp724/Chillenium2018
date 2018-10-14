@@ -50,9 +50,14 @@ public class StateManager : MonoBehaviour {
 			int counterNum = (int)counter;
 			timerText.text = counterNum.ToString ();
 			counter -= Time.deltaTime;
+
 			//If counter gets to check in time, allows player to lock in a choice
 			if (counterNum < countdownClips.Length && clipTracker != counterNum) {
 				canChange = true;
+                for(int i = 0; i < players.Length; i++)
+                {
+                    players[i].GetComponent<CharController>().glow();
+                }
 				timerText.color = Color.yellow;
 				aud.clip = countdownClips [counterNum];
 				aud.Play ();
@@ -79,6 +84,7 @@ public class StateManager : MonoBehaviour {
                     players[i].GetComponent<CharController>().change = true;
 
                 }
+                players[i].GetComponent<CharController>().deGlow();
             }
             counter = countdownTime;
             timerText.color = Color.white;

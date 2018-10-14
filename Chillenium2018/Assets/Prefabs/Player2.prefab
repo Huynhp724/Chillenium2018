@@ -42,6 +42,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1781702257121858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4185074522756886}
+  - component: {fileID: 108264604912603774}
+  m_Layer: 0
+  m_Name: Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1799392619294512
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,7 +69,7 @@ GameObject:
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -82,6 +98,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4185074522756886
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781702257121858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4460472696134804}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4460472696134804
 Transform:
   m_ObjectHideFlags: 1
@@ -89,12 +118,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1967945880169582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.17, y: 2.67, z: -0.01953125}
+  m_LocalPosition: {x: 11.5, y: 2.67, z: -0.01953125}
   m_LocalScale: {x: 0.5027, y: 0.5027, z: 0.5027}
   m_Children:
   - {fileID: 4541105325678704}
   - {fileID: 4839302068666272}
   - {fileID: 4471616970628982}
+  - {fileID: 4185074522756886}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -380,6 +410,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!108 &108264604912603774
+Light:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781702257121858}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 15
+  m_Range: 1.5
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!114 &114009775617802332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,7 +458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631ff70d98506c54d88a2d46aeea0780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1896279687770412, guid: 1ac8b11220df9f04ebb1489fc7af57ae, type: 2}
+  catNote: {fileID: 1896279687770412, guid: 1ac8b11220df9f04ebb1489fc7af57ae, type: 2}
+  fishNote: {fileID: 1896279687770412, guid: a868cd6126dfa8040b7521873d9871e7, type: 2}
+  birdNote: {fileID: 1896279687770412, guid: 0fc9e603d7dd0a24e935eaa93bad3107, type: 2}
   spawnLocation: {fileID: 4839302068666272}
   attackNum: 3
   fishSFX:
@@ -437,7 +506,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   SpawnLocation: {fileID: 4839302068666272}
-  playerNumber: 0
+  playerNumber: 1
   fishMoveSFX:
   - {fileID: 8300000, guid: 885685c489957e24985bc41893ed8288, type: 3}
   - {fileID: 8300000, guid: 4fee852401b03ab46ab22d96f55b6666, type: 3}
@@ -453,6 +522,7 @@ MonoBehaviour:
   catLandSFX: {fileID: 8300000, guid: c4f0836a720e68b41b7c1288682eb8ac, type: 3}
   birdLandSFX: {fileID: 8300000, guid: 5dea78942ab9da64d88d6056aca7dcd3, type: 3}
   rustleSFX: {fileID: 8300000, guid: cbb5d06599c2ec448973912e75bf7152, type: 3}
+  myLight: {fileID: 108264604912603774}
 --- !u!114 &114817619635855320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -552,7 +622,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f5b975127383a8d42a016d5ddec5849b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour {
-	public GameObject projectile;
+	public GameObject catNote;
+    public GameObject fishNote;
+    public GameObject birdNote;
+
     public Transform spawnLocation;
     public int attackNum;
     AudioSource[] attackSources;
@@ -106,21 +109,33 @@ public class Shoot : MonoBehaviour {
 		}
 	}
 	void FireProjectile(){
-		GameObject projectileClone = (GameObject)Instantiate(projectile, spawnLocation.position, spawnLocation.rotation);
-        projectileClone.GetComponent<Entity>().type = gameObject.GetComponent<Entity>().type;
-        if(gameObject.GetComponent<Entity>().type == Entity.Element.bass)
+        Entity.Element myType = gameObject.GetComponent<Entity>().type;
+        if (gameObject.GetComponent<Entity>().type == Entity.Element.bass)
         {
+            GameObject projectileClone = (GameObject)Instantiate(fishNote, spawnLocation.position, spawnLocation.rotation);
+            projectileClone.GetComponent<Entity>().type = myType;
             projectileClone.GetComponent<SpriteRenderer>().sprite = fishNotes;
+            projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
+            projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
+            projectileClone.transform.localScale = new Vector3(gameObject.transform.localScale.x, projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
         }
         if (gameObject.GetComponent<Entity>().type == Entity.Element.guitar)
         {
+            GameObject projectileClone = (GameObject)Instantiate(catNote, spawnLocation.position, spawnLocation.rotation);
+            projectileClone.GetComponent<Entity>().type = myType;
             projectileClone.GetComponent<SpriteRenderer>().sprite = catNotes;
+            projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
+            projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
+            projectileClone.transform.localScale = new Vector3(gameObject.transform.localScale.x, projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
         }
         if (gameObject.GetComponent<Entity>().type == Entity.Element.horn)
         {
+            GameObject projectileClone = (GameObject)Instantiate(birdNote, spawnLocation.position, spawnLocation.rotation);
+            projectileClone.GetComponent<Entity>().type = myType;
             projectileClone.GetComponent<SpriteRenderer>().sprite = birdNotes;
+            projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
+            projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
+            projectileClone.transform.localScale = new Vector3(gameObject.transform.localScale.x, projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
         }
-        projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
-        projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
     }
 }
