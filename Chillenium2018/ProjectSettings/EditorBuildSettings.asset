@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Arena2.unity
     guid: 427b4ff0d99c4fe40a2fb5df3f0e1d5c
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 4db82c8adbe4df64abfc385c1104cd58
   m_configObjects: {}
