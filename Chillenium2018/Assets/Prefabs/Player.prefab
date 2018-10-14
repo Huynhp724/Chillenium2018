@@ -180,7 +180,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5dea78942ab9da64d88d6056aca7dcd3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f004867dbfab143429b625e58387d08d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.054
   m_Pitch: 1
@@ -297,7 +297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1154900230991952, guid: 1ac8b11220df9f04ebb1489fc7af57ae, type: 2}
   spawnLocation: {fileID: 4965828563314878}
-  projectiles_remaining: {fileID: 0}
   attackNum: 3
   fishSFX:
   - {fileID: 8300000, guid: fea17c42ae2cbf24389ca7d3bb3af950, type: 3}
@@ -308,10 +307,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8110a1c55a71bce479fc5d0bd4747086, type: 3}
   - {fileID: 8300000, guid: 8323767b6b6aca449972c18bfd721de5, type: 3}
   birdSFX:
-  - {fileID: 8300000, guid: a4f54c6b640c7d54abc226810c89f1aa, type: 3}
-  - {fileID: 8300000, guid: 9a73e7de7c0c8a24e898952330fb47a8, type: 3}
-  - {fileID: 8300000, guid: ce53682838f4627448cbb64668a949aa, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   max_projectiles: 5
+  num_projectiles: 0
+  projectiles_remaining: 0
   reload_time: 0.05
   spam_time: 0.7
   blasterSpeed: 40
@@ -381,8 +382,10 @@ MonoBehaviour:
   damageFromSame: 2
   damageFromWeakness: 3
   damageFromStrength: 1
-  debugTextHealth: {fileID: 0}
-  debugTextScore: {fileID: 0}
+  weakHit: {fileID: 0}
+  normalHit: {fileID: 0}
+  strongHit: {fileID: 0}
+  playerAud: {fileID: 0}
 --- !u!212 &212544939015754982
 SpriteRenderer:
   m_ObjectHideFlags: 1

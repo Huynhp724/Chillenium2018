@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e588902cc7a3340b3a7a637d92cf36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1951753068536264, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
+  player: {fileID: 1761462191965408, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
   clip: {fileID: 8300000, guid: 5dea78942ab9da64d88d6056aca7dcd3, type: 3}
 --- !u!114 &114874746629133318
 MonoBehaviour:
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e588902cc7a3340b3a7a637d92cf36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1951753068536264, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
+  player: {fileID: 1761462191965408, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
   clip: {fileID: 8300000, guid: f004867dbfab143429b625e58387d08d, type: 3}
 --- !u!1101 &1101027706289280280
 AnimatorStateTransition:
