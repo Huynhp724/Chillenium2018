@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AnimationBehaviors\PlaySound.cs" />
+     <Compile Include="Assets\Scripts\CameraZooming.cs" />
      <Compile Include="Assets\Scripts\Combat\CharController.cs" />
      <Compile Include="Assets\Scripts\Combat\Entity.cs" />
      <Compile Include="Assets\Scripts\Combat\Explosion.cs" />

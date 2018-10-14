@@ -49,7 +49,7 @@ public class Shoot : MonoBehaviour {
 			num_projectiles--;
 			timer = reload_time;
 		}
-		if (!gameObject.GetComponent<CharController> ().dead) {
+		if (!gameObject.GetComponent<CharController> ().dead && !GameManager.gameStart) {
 			//FIRE
 			projectiles_remaining = max_projectiles - num_projectiles;
 			if (num_projectiles < max_projectiles) { //able to fire

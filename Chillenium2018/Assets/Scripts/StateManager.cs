@@ -34,12 +34,13 @@ public class StateManager : MonoBehaviour {
     // Use this for initialization
     void Start() {
         Physics2D.gravity = new Vector3(0.0f, gravityForce, 0.0f);
-        counter = countdownTime;
+		counter = checkInTime + 1f;
         // players = GameObject.FindGameObjectsWithTag("Player");
         checkInText.text = "Standby...";
         checkInText2.text = "Standby...";
         clipTracker = countdownClips.Length;
-        checkAmmo();
+		checkAmmo();
+		StartCoroutine (Waiting ());
     }
 	
 	// Update is called once per frame
@@ -71,7 +72,6 @@ public class StateManager : MonoBehaviour {
         //Once time reaches 0, resets and transforms players who locked in
         if (counter < 0)
         {
-
             for (int i = 0; i < players.Length; i++)
             {
                 if (players[i].GetComponent<CharController>().checkIn)
@@ -87,7 +87,6 @@ public class StateManager : MonoBehaviour {
             checkInText2.text = "Standby...";
             clipTracker = countdownClips.Length;
         }
-        //TODO: IN BETWEEN WINS, PAUSE STATE
 
         //score
         scoreText.text = "P1 Score: " + GameManager.score_one;
@@ -114,6 +113,11 @@ public class StateManager : MonoBehaviour {
             }
         }
     }
+
+	IEnumerator Waiting(){
+		yield return new WaitForSeconds (4f);
+		GameManager.gameStart = false;
+	}
 
     public void checkAmmo()
     {

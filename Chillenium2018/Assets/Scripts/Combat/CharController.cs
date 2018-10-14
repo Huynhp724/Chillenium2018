@@ -54,7 +54,7 @@ public class CharController : MonoBehaviour {
 		if (!dead) {
 			//PLAYER ONE INPUTS
 			if (playerNumber == PlayerNum.player1) {
-				if ((Input.GetButtonDown ("Jump") || Input.GetAxis ("Vertical") == 1) && grounded) {
+				if ((Input.GetButtonDown ("Jump") || Input.GetAxis ("Vertical") == 1) && grounded && !GameManager.gameStart) {
 					//Debug.Log("JUMP");
 					jumped = true;
 				}
@@ -82,7 +82,7 @@ public class CharController : MonoBehaviour {
 
 			//PLAYER TWO INPUTS
 			if (playerNumber == PlayerNum.player2) {
-				if ((Input.GetButtonDown ("Jump2") || Input.GetAxis ("Vertical2") == 1) && grounded) {
+				if ((Input.GetButtonDown ("Jump2") || Input.GetAxis ("Vertical2") == 1) && grounded&& !GameManager.gameStart) {
 					//Debug.Log("JUMP");
 					jumped = true;
 				}
@@ -119,7 +119,7 @@ public class CharController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-		if (!dead) {
+		if (!dead&& !GameManager.gameStart) {
 			//Debug.Log(grounded);
 			grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 			if (playerNumber == PlayerNum.player1) {

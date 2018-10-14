@@ -127,6 +127,6 @@ public class PlayerChar : MonoBehaviour {
 		}
 		gameObject.GetComponent<CharController> ().dead = true;
 		yield return new WaitForSeconds (3f);
-		GameManager.ResetScene (); 
+		GameManager.NextScene (); 
 	}
 }
