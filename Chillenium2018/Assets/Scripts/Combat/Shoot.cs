@@ -118,7 +118,7 @@ public class Shoot : MonoBehaviour {
             projectileClone.GetComponent<SpriteRenderer>().sprite = fishNotes;
             projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
             projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
-            projectileClone.transform.localScale = new Vector3(gameObject.transform.localScale.x, projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
+            projectileClone.transform.localScale = new Vector3(Mathf.Sign(gameObject.transform.localScale.x), projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
         }
         if (gameObject.GetComponent<Entity>().type == Entity.Element.guitar)
         {
@@ -127,7 +127,7 @@ public class Shoot : MonoBehaviour {
             projectileClone.GetComponent<SpriteRenderer>().sprite = catNotes;
             projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
             projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
-            projectileClone.transform.localScale = new Vector3(gameObject.transform.localScale.x, projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
+            projectileClone.transform.localScale = new Vector3(Mathf.Sign(gameObject.transform.localScale.x), projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
         }
         if (gameObject.GetComponent<Entity>().type == Entity.Element.horn)
         {
@@ -136,7 +136,7 @@ public class Shoot : MonoBehaviour {
             projectileClone.GetComponent<SpriteRenderer>().sprite = birdNotes;
             projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
             projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
-            projectileClone.transform.localScale = new Vector3(gameObject.transform.localScale.x, projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
+            projectileClone.transform.localScale = new Vector3(Mathf.Sign(gameObject.transform.localScale.x), projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
         }
     }
 }
