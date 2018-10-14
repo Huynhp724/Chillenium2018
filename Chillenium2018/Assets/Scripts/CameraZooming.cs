@@ -6,20 +6,45 @@ public class CameraZooming : MonoBehaviour {
 
     Camera mainCamera;
     public float zoomSpeed;
-    public float maxZoom;
-    public float minZoom;
+    public float maxZoom = 6f;
+    public float minZoom = 3f;
+    public float borderWidth;
+    public float borderHeight;
+    float camHeight;
+    float camWidth;
+    public float size;
+    Vector2 prevDistance;
+    Vector2 currDistance;
     public GameObject[] players;
 	// Use this for initialization
 	void Start () {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-	}
+        camHeight = 2f * mainCamera.orthographicSize;
+        camWidth = camHeight * mainCamera.aspect;
+        prevDistance = maxSizeCalc();
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        
+        size = mainCamera.orthographicSize;
         //Find max bounds x and y of all players
-        Vector2 max2D = maxSizeCalc();
-        mainCamera.gameObject.transform.parent.gameObject.transform.position = new Vector3(max2D.x, max2D.y, 0);
-        mainCamera.orthographicSize = 4;
+        currDistance = maxSizeCalc();
+        mainCamera.gameObject.transform.parent.gameObject.transform.position = 
+        new Vector3((players[0].transform.position.x + players[1].transform.position.x)/2, (players[0].transform.position.y + players[1].transform.position.y) / 2, mainCamera.gameObject.transform.parent.gameObject.transform.position.z);
+        float prevArea = prevDistance.x * prevDistance.y;
+        float currArea = currDistance.x * currDistance.y;
+        if(currArea - prevArea > 0)
+        {
+            mainCamera.orthographicSize += Time.deltaTime * zoomSpeed;
+        }
+        else if (currArea - prevArea < 0)
+        {
+            mainCamera.orthographicSize -= Time.deltaTime * zoomSpeed;
+        }
+        if (mainCamera.orthographicSize < 3) mainCamera.orthographicSize = 3;
+        if (mainCamera.orthographicSize > 6) mainCamera.orthographicSize = 6;
+        prevDistance = currDistance;
 	}
 
     //returns biggest x distance and y distance between players
@@ -27,8 +52,8 @@ public class CameraZooming : MonoBehaviour {
     {
         float x = 0;
         float y = 0;
-        x = players[0].transform.position.x + players[1].transform.position.x;
-        y = players[0].transform.position.y + players[1].transform.position.y;
-        return new Vector2(x/2, y/2);
+        x = players[0].transform.position.x - players[1].transform.position.x;
+        y = players[0].transform.position.y - players[1].transform.position.y;
+        return new Vector2(x, y);
     }
 }
