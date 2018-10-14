@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileHandler : MonoBehaviour {
 
     public GameObject source;
+    public GameObject explosion;
 
 	public float speed = 5f;
 	public float death_timer = 1f;
@@ -27,15 +28,17 @@ public class ProjectileHandler : MonoBehaviour {
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Wall")
-        {
-         
-            Destroy(gameObject);
-        }
+       
     }
     void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject == source)
 			return;
+        if (col.gameObject.CompareTag("Wall"))
+        {
+            //Debug.Log("MAKING IT");
+            GameObject explode = (GameObject)Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
         if (col.gameObject.GetComponent<Entity>() == null)
         {
             Debug.Log("Collider doesn't have Entity");
@@ -53,7 +56,7 @@ public class ProjectileHandler : MonoBehaviour {
 		Debug.Log ("collision with " + otherType);
 
 		if (otherType == myType) { //if same type, destroy both
-       
+            GameObject explode = (GameObject)Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy (gameObject);
 		}
 

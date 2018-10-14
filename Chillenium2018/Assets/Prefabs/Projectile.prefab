@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 0}
+  explosion: {fileID: 1298458984640492, guid: 1a11185378a33ef4780d8f15078404fa, type: 2}
   speed: 5
   death_timer: 0.3
 --- !u!212 &212527158186703862

@@ -9,18 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1773686662599722}
+  m_RootGameObject: {fileID: 1298458984640492}
   m_IsPrefabAsset: 1
---- !u!1 &1773686662599722
+--- !u!1 &1298458984640492
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4591379296897528}
-  - component: {fileID: 212417312152503684}
-  - component: {fileID: 82618653990088748}
+  - component: {fileID: 4286185519639100}
+  - component: {fileID: 212184137016866214}
+  - component: {fileID: 114706070986225976}
+  - component: {fileID: 82943475049112538}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -28,31 +29,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4591379296897528
+--- !u!4 &4286185519639100
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773686662599722}
+  m_GameObject: {fileID: 1298458984640492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 681.0237, y: 828.8121, z: 0}
+  m_LocalPosition: {x: 7.6756616, y: 1.9335244, z: -0.09294645}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82618653990088748
+--- !u!82 &82943475049112538
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773686662599722}
+  m_GameObject: {fileID: 1298458984640492}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a1554ba40a873f24e8f029a6c2d79f73, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.097
+  m_Volume: 0.135
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -136,12 +137,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!212 &212417312152503684
+--- !u!114 &114706070986225976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1298458984640492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204591186aecabf48b59a3b31a442779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &212184137016866214
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773686662599722}
+  m_GameObject: {fileID: 1298458984640492}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
