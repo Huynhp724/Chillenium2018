@@ -1,7 +1,18 @@
 fileFormatVersion: 2
 guid: 00c2e471e302fae489d66f43ba5cf54f
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: 3 bird shoot sprite_0
+    21300002: 3 bird shoot sprite_1
+    21300004: 3 bird shoot sprite_2
+    21300006: 3 bird shoot sprite_3
+    21300008: 3 bird shoot sprite_4
+    21300010: 3 bird shoot sprite_5
+    21300012: 3 bird shoot sprite_6
+    21300014: 3 bird shoot sprite_7
+    21300016: 3 bird shoot sprite_8
+    21300018: 3 bird shoot sprite_9
+    21300020: 3 bird shoot sprite_10
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -40,7 +51,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +80,180 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 3 bird shoot sprite_0
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 900
+        width: 1350
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95d9153888271548af4b0b141cd4ff4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 bird shoot sprite_1
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 900
+        width: 1350
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c561794bf9bc4c4d8fdfd971988f4a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 bird shoot sprite_2
+      rect:
+        serializedVersion: 2
+        x: 2593
+        y: 900
+        width: 1350
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0940292be3a91c04c96f2b6f1327526c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 bird shoot sprite_3
+      rect:
+        serializedVersion: 2
+        x: 4050
+        y: 882
+        width: 1350
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b65ce233376904ab7d5da974cdf347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 bird shoot sprite_4
+      rect:
+        serializedVersion: 2
+        x: 5329
+        y: 900
+        width: 1350
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86d6b2467e2f0345a162b652a0e62c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 bird shoot sprite_5
+      rect:
+        serializedVersion: 2
+        x: 6607
+        y: 900
+        width: 1350
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a5c6518c53b8b46bcd93b2299c80b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 bird shoot sprite_6
+      rect:
+        serializedVersion: 2
+        x: 5275
+        y: 0
+        width: 1350
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920d06b88feda5e4da0a0ee9d5e64649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 bird shoot sprite_7
+      rect:
+        serializedVersion: 2
+        x: 6697
+        y: 0
+        width: 1350
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdc06f500a9d48e41acfa5888e3fe3ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

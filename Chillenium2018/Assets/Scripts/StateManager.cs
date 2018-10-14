@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using EZCameraShake;
 
 public class StateManager : MonoBehaviour {
     public float gravityForce;
@@ -54,7 +55,8 @@ public class StateManager : MonoBehaviour {
 			//If counter gets to check in time, allows player to lock in a choice
 			if (counterNum < countdownClips.Length && clipTracker != counterNum) {
 				canChange = true;
-                for(int i = 0; i < players.Length; i++)
+                CameraShaker.Instance.ShakeOnce(4f - counterNum, 7f - counterNum, .1f, 1.5f);
+                for (int i = 0; i < players.Length; i++)
                 {
                     players[i].GetComponent<CharController>().glow();
                 }
