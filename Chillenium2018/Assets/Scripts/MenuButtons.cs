@@ -8,7 +8,7 @@ public class MenuButtons : MonoBehaviour {
     public AudioSource aud;
 
 	public void PlayButton(){
-        SceneManager.LoadScene ("TestingGrounds");
+        SceneManager.LoadScene ("Tutorial");
 	}
 	public void QuitButton(){
         Application.Quit ();
