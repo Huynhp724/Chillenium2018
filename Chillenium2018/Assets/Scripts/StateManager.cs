@@ -16,7 +16,7 @@ public class StateManager : MonoBehaviour {
 	public Text scoreText2;
 
 	public Image portrait, portrait2;
-    public Sprite bird, cat, fish, mystery;
+    public Sprite bird, cat, fish, mystery, mystery2;
 
 	public GameObject pause;
 
@@ -108,7 +108,9 @@ public class StateManager : MonoBehaviour {
             if (begin)
             {
                 portrait.sprite = mystery;
-                portrait2.sprite = mystery;
+                portrait2.sprite = mystery2;
+                portrait2.transform.localScale = new Vector2(1f, 1f);
+               
             }
             else
             {
@@ -193,6 +195,7 @@ public class StateManager : MonoBehaviour {
                 begin = false;
                 anim1.SetBool("Begin", false);
                 anim2.SetBool("Begin", false);
+                portrait2.transform.localScale = new Vector2(-1f, 1f);
             }
         }
 

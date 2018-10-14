@@ -18,11 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TestingGrounds.unity
     guid: 66451a3e0f277a94692884733705853e
   - enabled: 1
-    path: Assets/Scenes/Arena2.unity
-    guid: 427b4ff0d99c4fe40a2fb5df3f0e1d5c
+    path: Assets/Scenes/TestingGrounds 1.unity
+    guid: 4748c05a56c2f604ea1ad36a93cb807f
   - enabled: 1
-    path: Assets/Scenes/Arena3.unity
-    guid: 370ec2066e2fa8c43881a67920d78854
+    path: Assets/Scenes/TestingGrounds 2.unity
+    guid: d4ade079474864148a591de854b871a0
+  - enabled: 1
+    path: Assets/Scenes/TestingGrounds 3.unity
+    guid: 4a4c3a5cd2b16154bab72dd5f80755bc
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 4db82c8adbe4df64abfc385c1104cd58
