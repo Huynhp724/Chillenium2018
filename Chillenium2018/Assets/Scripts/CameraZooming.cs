@@ -16,7 +16,10 @@ public class CameraZooming : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Find max bounds x and y of all players
+        //Find max bounds x and y of all players
+        Vector2 max2D = maxSizeCalc();
+        mainCamera.gameObject.transform.parent.gameObject.transform.position = new Vector3(max2D.x, max2D.y, 0);
+        mainCamera.orthographicSize = 4;
 	}
 
     //returns biggest x distance and y distance between players
@@ -24,8 +27,8 @@ public class CameraZooming : MonoBehaviour {
     {
         float x = 0;
         float y = 0;
-        x = players[0].transform.position.x - players[1].transform.position.x;
-        y = players[0].transform.position.y - players[1].transform.position.y;
-        return new Vector2(x, y);
+        x = players[0].transform.position.x + players[1].transform.position.x;
+        y = players[0].transform.position.y + players[1].transform.position.y;
+        return new Vector2(x/2, y/2);
     }
 }
