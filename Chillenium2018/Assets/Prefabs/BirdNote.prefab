@@ -103,9 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201403a43558e134ca7f78404fc0c268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
-  frequency: 15
-  magnitude: 0.4
+  MoveSpeed: 20
+  frequency: 75
+  magnitude: 0.3
 --- !u!114 &114892415823595666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
   source: {fileID: 0}
   explosion: {fileID: 1298458984640492, guid: 1a11185378a33ef4780d8f15078404fa, type: 2}
   speed: 5
-  death_timer: 1
+  death_timer: 0.3
 --- !u!212 &212527158186703862
 SpriteRenderer:
   m_ObjectHideFlags: 1
