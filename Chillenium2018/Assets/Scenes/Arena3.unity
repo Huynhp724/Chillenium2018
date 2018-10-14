@@ -546,6 +546,11 @@ Prefab:
       propertyPath: players.Array.data[1]
       value: 
       objectReference: {fileID: 1105124057}
+    - target: {fileID: 224165689187094768, guid: 4c28d6b12a32e534fb28f4a6b1e05563,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 48.94995
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c28d6b12a32e534fb28f4a6b1e05563, type: 2}
   m_IsPrefabAsset: 0
