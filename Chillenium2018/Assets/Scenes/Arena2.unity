@@ -1378,6 +1378,11 @@ Prefab:
       propertyPath: deathAud
       value: 
       objectReference: {fileID: 78066460}
+    - target: {fileID: 114456090004235876, guid: 88f426ada9ecc50408e9cbc75155e238,
+        type: 2}
+      propertyPath: playerNumber
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f426ada9ecc50408e9cbc75155e238, type: 2}
   m_IsPrefabAsset: 0
