@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Arena2.unity
-=======
 - path: Assets/Scenes/TestingGrounds.unity
->>>>>>> main
   isLoaded: 1
   isActive: 1
