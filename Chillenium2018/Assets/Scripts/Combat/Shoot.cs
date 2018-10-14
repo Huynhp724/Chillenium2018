@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour {
+
 	public GameObject projectile;
     public Transform spawnLocation;
     public int attackNum;
@@ -36,7 +37,7 @@ public class Shoot : MonoBehaviour {
         }
     }
     // Use this for initialization
-    void Start () {
+	void Start () {
 		timer = reload_time;
 	}
 	
@@ -55,6 +56,7 @@ public class Shoot : MonoBehaviour {
 			if (num_projectiles < max_projectiles) { //able to fire
 				if (gameObject.GetComponent<CharController> ().playerNumber == CharController.PlayerNum.player1) {
 					if (Input.GetButtonDown ("Fire1")) {
+
 						FireProjectile ();
 						num_projectiles++;
 						timer = spam_time;
