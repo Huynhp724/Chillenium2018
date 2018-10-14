@@ -180,8 +180,14 @@ public class CharController : MonoBehaviour {
 
     public void changeRumble()
     {
-        Debug.Log("NO RUMBLE");
+        //Debug.Log("NO RUMBLE");
         anim.SetBool("Rumbling", false);
+    }
+
+    public void stopAttacking()
+    {
+      
+        anim.SetBool("Attacking", false);
     }
 
     public void transformation()

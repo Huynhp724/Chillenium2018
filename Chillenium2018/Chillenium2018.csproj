@@ -319,6 +319,7 @@
     <Compile Include="Assets\Scripts\Combat\ProjectileHandler.cs" />
     <Compile Include="Assets\Scripts\Combat\Shoot.cs" />
     <Compile Include="Assets\Scripts\Combat\SineWaveBullet.cs" />
+    <Compile Include="Assets\Scripts\CreditsListener.cs" />
     <Compile Include="Assets\Scripts\EZ Camera Shake\Demo\Sample Scripts\ShakeByDistance.cs" />
     <Compile Include="Assets\Scripts\EZ Camera Shake\Demo\Sample Scripts\ShakeOnKeyPress.cs" />
     <Compile Include="Assets\Scripts\EZ Camera Shake\Demo\Sample Scripts\ShakeOnTrigger.cs" />

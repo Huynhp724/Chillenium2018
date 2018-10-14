@@ -29,6 +29,8 @@ public class Shoot : MonoBehaviour {
     public Sprite catNotes;
     public Sprite birdNotes;
 
+    Animator anim;
+
     private void Awake()
     {
         attackSources = new AudioSource[attackNum];
@@ -41,6 +43,7 @@ public class Shoot : MonoBehaviour {
     // Use this for initialization
 	void Start () {
 		timer = reload_time;
+        anim = gameObject.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -59,6 +62,7 @@ public class Shoot : MonoBehaviour {
 				if (gameObject.GetComponent<CharController> ().playerNumber == CharController.PlayerNum.player1) {
 					if (Input.GetButtonDown ("Fire1")) {
 
+                        anim.SetBool("Attacking", true);
 						FireProjectile ();
 						num_projectiles++;
 						timer = spam_time;
@@ -85,9 +89,10 @@ public class Shoot : MonoBehaviour {
 						FireProjectile ();
 						num_projectiles++;
 						timer = spam_time;
+                        anim.SetBool("Attacking", true);
 
-						//Plays projectile sound
-						int clipNum = Random.Range (0, attackNum);
+                        //Plays projectile sound
+                        int clipNum = Random.Range (0, attackNum);
 						if (gameObject.GetComponent<Entity> ().type == Entity.Element.bass) {
 							attackSources [audioCount].clip = fishSFX [clipNum];
 						}
