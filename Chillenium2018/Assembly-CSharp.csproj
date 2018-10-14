@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\MenuButtons.cs" />
      <Compile Include="Assets\Scripts\StateManager.cs" />
      <Compile Include="Assets\Scripts\TutorialListener.cs" />
+     <Compile Include="Assets\Scripts\WinScreen.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Taylor Hobbs/Desktop/Chillenium2018/Chillenium2018/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

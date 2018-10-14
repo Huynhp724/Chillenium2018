@@ -116,12 +116,9 @@ public class PlayerChar : MonoBehaviour {
         }
     }
 
-	//TODO: SETTERS AND GETTERS
 	public int GetHealth(){return health;}
 
 	IEnumerator Death(){
-        
-
         GameManager.roundOver = true;
 		winText.gameObject.SetActive (true);
 		health = 0;
@@ -135,6 +132,9 @@ public class PlayerChar : MonoBehaviour {
 		}
 		gameObject.GetComponent<CharController> ().dead = true;
 		yield return new WaitForSeconds (3f);
-		GameManager.NextScene (); 
+		if (GameManager.score_one >= 5 || GameManager.score_two >= 5)
+			GameManager.Win ();
+		else
+			GameManager.NextScene (); 
 	}
 }
