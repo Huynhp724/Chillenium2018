@@ -478,7 +478,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 476069320}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b35a665414d6dd4999ca2522e6ba5a2, type: 3}
   m_Name: 
@@ -670,6 +670,16 @@ Prefab:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114479147207424750, guid: 43f253aaa63754740b60e932b49a16b9,
+        type: 2}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 2015645194}
+    - target: {fileID: 114479147207424750, guid: 43f253aaa63754740b60e932b49a16b9,
+        type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1890484810}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
   m_IsPrefabAsset: 0
@@ -1355,6 +1365,11 @@ Prefab:
       propertyPath: rustleSFX
       value: 
       objectReference: {fileID: 8300000, guid: cbb5d06599c2ec448973912e75bf7152, type: 3}
+    - target: {fileID: 114479147207424750, guid: 43f253aaa63754740b60e932b49a16b9,
+        type: 2}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 1657295275}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
   m_IsPrefabAsset: 0
@@ -1474,6 +1489,11 @@ MonoBehaviour:
 --- !u!224 &1790018297 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224836971389838872, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+    type: 2}
+  m_PrefabInternal: {fileID: 816177230}
+--- !u!224 &1890484810 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224653985737760344, guid: fccb8cbba0fef7d49b3a06a4dea20586,
     type: 2}
   m_PrefabInternal: {fileID: 816177230}
 --- !u!1 &1969636998
