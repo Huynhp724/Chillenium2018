@@ -680,6 +680,7 @@ MonoBehaviour:
   bird: {fileID: 21300000, guid: 17004407b019e39429c9a23edf6c9d25, type: 3}
   cat: {fileID: 21300000, guid: 441b04e8e612ad3439f7ce98b847fb8b, type: 3}
   fish: {fileID: 21300000, guid: eb59c2e21f4a03b408e0f19197aca6bf, type: 3}
+  mystery: {fileID: 21300000, guid: 39dd63e522116174896d91a4620dd3f6, type: 3}
   pause: {fileID: 1097243901076644}
   countdownTime: 10
   checkInTime: 3
@@ -689,6 +690,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 32197dd3d4b326e448dcab2c5f2440d1, type: 3}
   - {fileID: 8300000, guid: f740331ffbe9ef647bdaaf627dce98ba, type: 3}
   - {fileID: 8300000, guid: cbf85a1ace1bde248a68b5230b5bbe2f, type: 3}
+  beginClip: {fileID: 8300000, guid: b5ecbfc40553f5a47b068ea5a8778880, type: 3}
   aud: {fileID: 82062464376983228}
   clipTracker: 0
   players:
@@ -709,6 +711,9 @@ MonoBehaviour:
   fishNotes: {fileID: 21300000, guid: 285023c0dcf69294ba51cc3f7d7e85b1, type: 3}
   catNotes: {fileID: 21300000, guid: bbd2b418fc3dba74e99bb4ae9f9b0554, type: 3}
   birdNotes: {fileID: 21300000, guid: 2b59851122cc21a4d9c350cb81d5ad04, type: 3}
+  begin: 1
+  anim1: {fileID: 0}
+  anim2: {fileID: 0}
 --- !u!114 &114029576494433026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1890,7 +1895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -278, y: -162.5}
+  m_AnchoredPosition: {x: -278, y: -155.12}
   m_SizeDelta: {x: 184.9, y: 100}
   m_Pivot: {x: 1, y: 1.0000001}
 --- !u!224 &224267391015144038

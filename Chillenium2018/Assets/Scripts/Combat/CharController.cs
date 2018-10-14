@@ -215,6 +215,28 @@ public class CharController : MonoBehaviour {
         checkIn = false;
     }
 
+    public void forcedTransformation(Entity.Element newType)
+    {
+        type = newType;
+        gameObject.GetComponent<Entity>().changeType(type);
+        if (type == Entity.Element.bass)
+        {
+            anim.SetInteger("Form", -1);
+        }
+        if (type == Entity.Element.guitar)
+        {
+            anim.SetInteger("Form", 0);
+        }
+        if (type == Entity.Element.horn)
+        {
+            anim.SetInteger("Form", 1);
+        }
+        GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().checkAmmo();
+        anim.SetBool("Rumbling", true);
+        change = false;
+        checkIn = false;
+    }
+
     public void playFishMovement()
     {
         int randomSound = Random.Range(0, fishMoveSFX.Length);
