@@ -16,7 +16,7 @@ public class StateManager : MonoBehaviour {
 	public Text scoreText2;
 
 	public Image portrait, portrait2;
-	public Sprite bird, cat, fish;
+    public Sprite bird, cat, fish, mystery;
 
 	public GameObject arrow;
 	Image arrowImg;
@@ -28,6 +28,7 @@ public class StateManager : MonoBehaviour {
     float counter;
     public bool canChange;
     public AudioClip[] countdownClips;
+    public AudioClip beginClip;
     public AudioSource aud;
     public int clipTracker;
     public GameObject[] players;
@@ -38,7 +39,10 @@ public class StateManager : MonoBehaviour {
     public Sprite fishNotes;
     public Sprite catNotes;
     public Sprite birdNotes;
-    
+
+    public bool begin = true;
+    public Animator anim1;
+    public Animator anim2;
 
     // Use this for initialization
     void Start() {
@@ -61,6 +65,8 @@ public class StateManager : MonoBehaviour {
 			int counterNum = (int)counter;
 			timerText.text = counterNum.ToString ();
 			counter -= Time.deltaTime;
+
+            //Pausing
 			if(Input.GetButtonDown("Submit")){
 				if(Time.timeScale == 1){
 					Time.timeScale = 0;
@@ -73,13 +79,27 @@ public class StateManager : MonoBehaviour {
 			//If counter gets to check in time, allows player to lock in a choice
 			if (counterNum < countdownClips.Length && clipTracker != counterNum) {
 				canChange = true;
-                CameraShaker.Instance.ShakeOnce(4f - counterNum, 7f - counterNum, .1f, 1.5f);
+                if (!begin)
+                {
+                    CameraShaker.Instance.ShakeOnce(4f - counterNum, 7f - counterNum, .1f, 1.5f);
+                }
+                else
+                {
+                    CameraShaker.Instance.ShakeOnce(2f, 2f, .1f, 4f);
+                }
                 for (int i = 0; i < players.Length; i++)
                 {
                     players[i].GetComponent<CharController>().glow();
                 }
 				timerText.color = Color.yellow;
-				aud.clip = countdownClips [counterNum];
+                if (begin && counterNum == 0)
+                {
+                    aud.clip = beginClip;
+                }
+                else
+                {
+                    aud.clip = countdownClips[counterNum];
+                }
 				aud.Play ();
 				clipTracker--;
 			}
@@ -133,6 +153,14 @@ public class StateManager : MonoBehaviour {
 				portrait2.sprite = bird;
 				break;
 			}
+            if (begin)
+            {
+                portrait.sprite = mystery;
+                portrait2.sprite = mystery;
+            }
+            else
+            {
+            }
 		}
 
 		if (counter <= 4 && counter > 3 || (counter <= 2 && counter > 0)) {
@@ -162,6 +190,28 @@ public class StateManager : MonoBehaviour {
                     players[i].GetComponent<CharController>().change = true;
 
                 }
+                else
+                {
+                    if (begin)
+                    {
+                        
+                        switch (Random.Range(0, 3))
+                        {
+                            case 0:
+                                players[i].GetComponent<CharController>().forcedTransformation(Entity.Element.bass);
+                                break;
+                            case 1:
+                                players[i].GetComponent<CharController>().forcedTransformation(Entity.Element.guitar);
+                                break;
+                            case 2:
+                                players[i].GetComponent<CharController>().forcedTransformation(Entity.Element.horn);
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+                }
                 players[i].GetComponent<CharController>().deGlow();
             }
             counter = countdownTime;
@@ -170,6 +220,12 @@ public class StateManager : MonoBehaviour {
             checkInText.text = "";
             checkInText2.text = "";
             clipTracker = countdownClips.Length;
+            if (begin)
+            {
+                begin = false;
+                anim1.SetBool("Begin", false);
+                anim2.SetBool("Begin", false);
+            }
         }
 
         //score
