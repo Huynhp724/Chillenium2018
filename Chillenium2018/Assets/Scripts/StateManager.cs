@@ -43,7 +43,12 @@ public class StateManager : MonoBehaviour {
     public bool begin = true;
     public Animator anim1;
     public Animator anim2;
+    public int origFontSize;
 
+    public Image dpad;
+    public Image dpad2;
+    public Sprite normDpad;
+    public Sprite goldDpad;
     // Use this for initialization
     void Start() {
 		Time.timeScale = 1;
@@ -56,6 +61,7 @@ public class StateManager : MonoBehaviour {
 		checkAmmo();
 		StartCoroutine (Waiting ());
 		arrowImg = arrow.gameObject.GetComponentInChildren<Image> ();
+        origFontSize = timerText.fontSize;
     }
 	
 	// Update is called once per frame
@@ -92,6 +98,7 @@ public class StateManager : MonoBehaviour {
                     players[i].GetComponent<CharController>().glow();
                 }
 				timerText.color = Color.yellow;
+                timerText.fontSize += 15;
                 if (begin && counterNum == 0)
                 {
                     aud.clip = beginClip;
@@ -176,10 +183,12 @@ public class StateManager : MonoBehaviour {
         //If player locks in, update their lock in message
         if (players[0].GetComponent<CharController>().checkIn)
         {
+            dpad.sprite = goldDpad;
             checkInText.text = "Locked In!";
         }
         if (players.Length > 1 && players[1].GetComponent<CharController>().checkIn)
         {
+            dpad2.sprite = goldDpad;
             checkInText2.text = "Locked In!";
         }
         //Once time reaches 0, resets and transforms players who locked in
@@ -222,6 +231,9 @@ public class StateManager : MonoBehaviour {
             checkInText.text = "";
             checkInText2.text = "";
             clipTracker = countdownClips.Length;
+            timerText.fontSize = origFontSize;
+            dpad.sprite = normDpad;
+            dpad2.sprite = normDpad;
             if (begin)
             {
                 begin = false;

@@ -11,7 +11,7 @@ public class WinScreen : MonoBehaviour {
     public AudioClip player2Win;
 	// Use this for initialization
 	void Start () {
-		whoWon.text = "PLAYER " + (GameManager.score_one > GameManager.score_two ? "1" : "2") + " WON";
+		whoWon.text = "PLAYER " + (GameManager.score_one > GameManager.score_two ? "1" : "2") + " WINS";
 		finalScore.text = "Score:\n" + GameManager.score_one + " to " + GameManager.score_two;
         if(GameManager.score_one > GameManager.score_two)
         {
