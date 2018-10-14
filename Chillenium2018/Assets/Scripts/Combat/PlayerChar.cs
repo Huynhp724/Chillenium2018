@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using EZCameraShake;
 
 public class PlayerChar : MonoBehaviour {
-	public int score = 0;
+	public bool scored = false;
+	public Text winText;
 
 	public Vector2 spawn;
    
@@ -27,6 +28,7 @@ public class PlayerChar : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		winText.gameObject.SetActive(false);
 		health = maxHealth;
 		spawn = new Vector2 (transform.position.x, transform.position.y);
         playerAud = gameObject.GetComponent<AudioSource>();
@@ -37,8 +39,9 @@ public class PlayerChar : MonoBehaviour {
 		//GUI.Label(new Rect(healthBar.transform.x, healthBar.transform.y, healthBar.localScale.x * ((float)health/(float)(maxHealth)), healthBar.localScale.y), "text");
 		healthBar.transform.localScale = new Vector2(((float)health/(float)(maxHealth)),healthBar.transform.localScale.y);
 		Debug.Log (healthBar.transform.localScale);
-		if (health <= 0)
-			Death ();
+		if (health <= 0) {
+			StartCoroutine (Death ());
+		}
 	}
 
 	public void DamagePlayer(GameObject shooter, Entity.Element otherType){
@@ -102,22 +105,28 @@ public class PlayerChar : MonoBehaviour {
             }
 		}
         if (health <= 0)
-        {
-            Death();
-            shooter.GetComponent<PlayerChar>().score++;
+		{
+			StartCoroutine(Death());
         }
     }
 
 	//TODO: SETTERS AND GETTERS
 	public int GetHealth(){return health;}
 
-	void Death(){
-		if (gameObject.GetComponent<CharController> ().playerNumber.Equals (CharController.PlayerNum.player1))
-			GameManager.score_two++;
-		else
-			GameManager.score_one++;
-		transform.SetPositionAndRotation (new Vector3 (spawn.x, spawn.y, transform.position.z), transform.rotation);
-		health = maxHealth;
-		GameManager.ResetScene (); //TEMPORARY
+	IEnumerator Death(){
+		GameManager.roundOver = true;
+		winText.gameObject.SetActive (true);
+		health = 0;
+		if (!scored) {
+			if (gameObject.GetComponent<CharController> ().playerNumber.Equals (CharController.PlayerNum.player1)) {
+				GameManager.score_two++;
+			} else {
+				GameManager.score_one++;
+			}
+			scored = true;
+		}
+		gameObject.GetComponent<CharController> ().dead = true;
+		yield return new WaitForSeconds (3f);
+		GameManager.ResetScene (); 
 	}
 }

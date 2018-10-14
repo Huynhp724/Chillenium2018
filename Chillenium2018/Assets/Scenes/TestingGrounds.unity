@@ -969,36 +969,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114942484568409142, guid: fccb8cbba0fef7d49b3a06a4dea20586,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.8962264
-      objectReference: {fileID: 0}
-    - target: {fileID: 114942484568409142, guid: fccb8cbba0fef7d49b3a06a4dea20586,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114942484568409142, guid: fccb8cbba0fef7d49b3a06a4dea20586,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114978235205972402, guid: fccb8cbba0fef7d49b3a06a4dea20586,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.8980392
-      objectReference: {fileID: 0}
-    - target: {fileID: 114978235205972402, guid: fccb8cbba0fef7d49b3a06a4dea20586,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114978235205972402, guid: fccb8cbba0fef7d49b3a06a4dea20586,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fccb8cbba0fef7d49b3a06a4dea20586, type: 2}
   m_IsPrefabAsset: 0
@@ -1388,6 +1358,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1657295275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114364990167461240, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+    type: 2}
+  m_PrefabInternal: {fileID: 816177230}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1736485706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,6 +1598,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224789975620982280, guid: fccb8cbba0fef7d49b3a06a4dea20586,
     type: 2}
   m_PrefabInternal: {fileID: 816177230}
+--- !u!114 &2015645194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114365733258112576, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+    type: 2}
+  m_PrefabInternal: {fileID: 816177230}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2022159381
 GameObject:
   m_ObjectHideFlags: 0

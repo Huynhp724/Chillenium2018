@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class StateManager : MonoBehaviour {
-
     public float gravityForce;
 
     public Text timerText;
@@ -42,24 +41,24 @@ public class StateManager : MonoBehaviour {
         clipTracker = countdownClips.Length;
         checkAmmo();
     }
-
-    // Update is called once per frame
-    void Update() {
-
-        //counter
-        int counterNum = (int)counter;
-        timerText.text = counterNum.ToString();
-        counter -= Time.deltaTime;
-        //If counter gets to check in time, allows player to lock in a choice
-        if (counterNum < countdownClips.Length && clipTracker != counterNum)
-        {
-            canChange = true;
-            timerText.color = Color.yellow;
-            aud.clip = countdownClips[counterNum];
-            aud.Play();
-            clipTracker--;
-        }
-
+	
+	// Update is called once per frame
+	void Update () {
+		if (!GameManager.roundOver) {
+			//counter
+			int counterNum = (int)counter;
+			timerText.text = counterNum.ToString ();
+			counter -= Time.deltaTime;
+			//If counter gets to check in time, allows player to lock in a choice
+			if (counterNum < countdownClips.Length && clipTracker != counterNum) {
+				canChange = true;
+				timerText.color = Color.yellow;
+				aud.clip = countdownClips [counterNum];
+				aud.Play ();
+				clipTracker--;
+			}
+		}
+       
         //If player locks in, update their lock in message
         if (players[0].GetComponent<CharController>().checkIn)
         {

@@ -49,74 +49,61 @@ public class Shoot : MonoBehaviour {
 			num_projectiles--;
 			timer = reload_time;
 		}
+		if (!gameObject.GetComponent<CharController> ().dead) {
+			//FIRE
+			projectiles_remaining = max_projectiles - num_projectiles;
+			if (num_projectiles < max_projectiles) { //able to fire
+				if (gameObject.GetComponent<CharController> ().playerNumber == CharController.PlayerNum.player1) {
+					if (Input.GetButtonDown ("Fire1")) {
+						FireProjectile ();
+						num_projectiles++;
+						timer = spam_time;
 
-		//FIRE
-		projectiles_remaining = max_projectiles - num_projectiles;
-		if (num_projectiles < max_projectiles) { //able to fire
-            if (gameObject.GetComponent<CharController>().playerNumber == CharController.PlayerNum.player1)
-            {
-                if (Input.GetButtonDown("Fire1"))
-                {
-                    FireProjectile();
-                    num_projectiles++;
-                    timer = spam_time;
+						//Plays projectile sound
+						int clipNum = Random.Range (0, attackNum);
+						if (gameObject.GetComponent<Entity> ().type == Entity.Element.bass) {
+							attackSources [audioCount].clip = fishSFX [clipNum];
+						}
+						if (gameObject.GetComponent<Entity> ().type == Entity.Element.guitar) {
+							attackSources [audioCount].clip = catSFX [clipNum];
+						}
+						if (gameObject.GetComponent<Entity> ().type == Entity.Element.horn) {
+							attackSources [audioCount].clip = birdSFX [clipNum];
+						}
+						attackSources [audioCount].Play (0);
+						audioCount++;
+						if (audioCount >= attackNum) {
+							audioCount = 0;
+						}
+					}
+				} else if (gameObject.GetComponent<CharController> ().playerNumber == CharController.PlayerNum.player2) {
+					if (Input.GetButtonDown ("Fire1_2")) {
+						FireProjectile ();
+						num_projectiles++;
+						timer = spam_time;
 
-                    //Plays projectile sound
-                    int clipNum = Random.Range(0, attackNum);
-                    if(gameObject.GetComponent<Entity>().type == Entity.Element.bass)
-                    {
-                        attackSources[audioCount].clip = fishSFX[clipNum];
-                    }
-                    if (gameObject.GetComponent<Entity>().type == Entity.Element.guitar)
-                    {
-                        attackSources[audioCount].clip = catSFX[clipNum];
-                    }
-                    if (gameObject.GetComponent<Entity>().type == Entity.Element.horn)
-                    {
-                        attackSources[audioCount].clip = birdSFX[clipNum];
-                    }
-                    attackSources[audioCount].Play(0);
-                    audioCount++;
-                    if (audioCount >= attackNum)
-                    {
-                        audioCount = 0;
-                    }
-                }
-            }
-            else if (gameObject.GetComponent<CharController>().playerNumber == CharController.PlayerNum.player2)
-            {
-                if (Input.GetButtonDown("Fire1_2"))
-                {
-                    FireProjectile();
-                    num_projectiles++;
-                    timer = spam_time;
+						//Plays projectile sound
+						int clipNum = Random.Range (0, attackNum);
+						if (gameObject.GetComponent<Entity> ().type == Entity.Element.bass) {
+							attackSources [audioCount].clip = fishSFX [clipNum];
+						}
+						if (gameObject.GetComponent<Entity> ().type == Entity.Element.guitar) {
+							attackSources [audioCount].clip = catSFX [clipNum];
+						}
+						if (gameObject.GetComponent<Entity> ().type == Entity.Element.horn) {
+							attackSources [audioCount].clip = birdSFX [clipNum];
+						}
+						attackSources [audioCount].Play (0);
+						audioCount++;
+						if (audioCount >= attackNum) {
+							audioCount = 0;
+						}
+					}
+				}
+			} else { //cannot fire; spam
 
-                    //Plays projectile sound
-                    int clipNum = Random.Range(0, attackNum);
-                    if (gameObject.GetComponent<Entity>().type == Entity.Element.bass)
-                    {
-                        attackSources[audioCount].clip = fishSFX[clipNum];
-                    }
-                    if (gameObject.GetComponent<Entity>().type == Entity.Element.guitar)
-                    {
-                        attackSources[audioCount].clip = catSFX[clipNum];
-                    }
-                    if (gameObject.GetComponent<Entity>().type == Entity.Element.horn)
-                    {
-                        attackSources[audioCount].clip = birdSFX[clipNum];
-                    }
-                    attackSources[audioCount].Play(0);
-                    audioCount++;
-                    if (audioCount >= attackNum)
-                    {
-                        audioCount = 0;
-                    }
-                }
-            }
-        } else { //cannot fire; spam
-
+			}
 		}
-
 	}
 	void FireProjectile(){
 		GameObject projectileClone = (GameObject)Instantiate(projectile, spawnLocation.position, spawnLocation.rotation);
