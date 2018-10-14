@@ -33,9 +33,9 @@ public class PlayerChar : MonoBehaviour {
     // Use this for initialization
 	void Start () {
 		if (gameObject.GetComponent<CharController> ().playerNumber == CharController.PlayerNum.player1) {
-			index = PlayerIndex.One;
-		} else {
 			index = PlayerIndex.Two;
+		} else {
+			index = PlayerIndex.One;
 		}
 		StartCoroutine(Vibrate (0.1f, 0f));
 		winText.gameObject.SetActive(false);
