@@ -15,12 +15,6 @@ public class StateManager : MonoBehaviour {
 	public Text scoreText;
 	public Text scoreText2;
 
-	public Text healthText;
-	public Text healthText2;
-
-	public GameObject ammo;
-	public GameObject ammo2;
-
     public float countdownTime; //How long between each "phase"
     public float checkInTime; //When player can check in
     float counter;
@@ -100,6 +94,7 @@ public class StateManager : MonoBehaviour {
 
 		//ammo
 		for (int index = 1; index <= 5; index++) {
+			Debug.Log ("projectiles remaining" + players [0].GetComponent<Shoot> ().projectiles_remaining);
 			if (players [0].GetComponent<Shoot> ().projectiles_remaining < index) {
 				boxes [index-1].gameObject.SetActive (false);
 			} else {

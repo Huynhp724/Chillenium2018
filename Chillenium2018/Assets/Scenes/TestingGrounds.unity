@@ -257,12 +257,8 @@ MonoBehaviour:
   timerText: {fileID: 875217149}
   checkInText: {fileID: 1991759358}
   checkInText2: {fileID: 148765686}
-  scoreText: {fileID: 0}
-  scoreText2: {fileID: 0}
-  healthText: {fileID: 0}
-  healthText2: {fileID: 0}
-  ammo: {fileID: 0}
-  ammo2: {fileID: 0}
+  scoreText: {fileID: 582429583}
+  scoreText2: {fileID: 1753545706}
   countdownTime: 7
   checkInTime: 3
   canChange: 0
@@ -503,6 +499,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224185087693725432, guid: fccb8cbba0fef7d49b3a06a4dea20586,
     type: 2}
   m_PrefabInternal: {fileID: 1762060682}
+--- !u!114 &582429583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114913112130993850, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+    type: 2}
+  m_PrefabInternal: {fileID: 1762060682}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!224 &732410718 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224942570536749898, guid: fccb8cbba0fef7d49b3a06a4dea20586,
@@ -1205,6 +1207,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1753545706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114018125850178654, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+    type: 2}
+  m_PrefabInternal: {fileID: 1762060682}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1762060682
 Prefab:
   m_ObjectHideFlags: 0

@@ -38,31 +38,6 @@ public class Shoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		//TEMP DISPLAY
-		string t = "";
-		projectiles_remaining = max_projectiles - num_projectiles;
-		switch (projectiles_remaining) {
-		case 0:
-			t = "- - - - -";
-			break;
-		case 1:
-			t = "+ - - - -";
-			break;
-		case 2:
-			t = "+ + - - -";
-			break;
-		case 3:
-			t = "+ + + - -";
-			break;
-		case 4:
-			t = "+ + + + -";
-			break;
-		case 5:
-			t = "+ + + + +";
-			break;
-		}
-
 		//TIMER
 		if(timer > 0f)
 			timer -= Time.deltaTime; // inc timer
@@ -72,6 +47,7 @@ public class Shoot : MonoBehaviour {
 		}
 
 		//FIRE
+		projectiles_remaining = max_projectiles - num_projectiles;
 		if (num_projectiles < max_projectiles) { //able to fire
             if (gameObject.GetComponent<CharController>().playerNumber == CharController.PlayerNum.player1)
             {
