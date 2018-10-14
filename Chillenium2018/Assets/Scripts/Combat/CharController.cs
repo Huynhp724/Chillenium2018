@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class CharController : MonoBehaviour {
+	PlayerIndex index;
 	public bool dead = false;
 
     public enum PlayerNum { player1, player2, player3, player4}
@@ -42,6 +44,11 @@ public class CharController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (gameObject.GetComponent<CharController> ().playerNumber == CharController.PlayerNum.player1) {
+			index = PlayerIndex.One;
+		} else {
+			index = PlayerIndex.Two;
+		}
         rb = gameObject.GetComponent<Rigidbody2D>();
         spr = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
@@ -64,17 +71,17 @@ public class CharController : MonoBehaviour {
 					if (Input.GetAxisRaw ("DpadX") < 0) {
 						changeType = Entity.Element.bass;
 						checkIn = true;
-
+						StartCoroutine (Vibrate (.1f, .2f));
 					}
 					if (Input.GetAxisRaw ("DpadX") > 0) {
 						changeType = Entity.Element.horn;
 						checkIn = true;
-
+						StartCoroutine (Vibrate (.1f, .2f));
 					}
 					if (Input.GetAxisRaw ("DpadY") > 0) {
 						changeType = Entity.Element.guitar;
 						checkIn = true;
-
+						StartCoroutine (Vibrate (.1f, .2f));
 					}
 
 
@@ -92,17 +99,17 @@ public class CharController : MonoBehaviour {
 					if (Input.GetAxisRaw ("DpadX2") < 0) {
 						changeType = Entity.Element.bass;
 						checkIn = true;
-
+						StartCoroutine (Vibrate (.1f, .2f));
 					}
 					if (Input.GetAxisRaw ("DpadX2") > 0) {
 						changeType = Entity.Element.horn;
 						checkIn = true;
-
+						StartCoroutine (Vibrate (.1f, .2f));
 					}
 					if (Input.GetAxisRaw ("DpadY2") > 0) {
 						changeType = Entity.Element.guitar;
 						checkIn = true;
-
+						StartCoroutine (Vibrate (.1f, .2f));
 					}
 
 
@@ -163,7 +170,13 @@ public class CharController : MonoBehaviour {
 					transform.localScale.z);
 			}
 		}
-    }
+	}
+	IEnumerator Vibrate(float secs, float amount){
+		GamePad.SetVibration (index, 0f, 0f);
+		GamePad.SetVibration (index, amount, amount);
+		yield return new WaitForSeconds (secs);
+		GamePad.SetVibration (index, 0f, 0f);
+	}
 
     public void changeRumble()
     {
