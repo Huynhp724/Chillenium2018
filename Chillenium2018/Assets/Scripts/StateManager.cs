@@ -95,8 +95,8 @@ public class StateManager : MonoBehaviour {
         }
 
         //score
-        scoreText.text = "P1 Score: " + GameManager.score_one;
-        scoreText2.text = "P2 Score: " + GameManager.score_two;
+        scoreText.text = "" + GameManager.score_one;
+        scoreText2.text = "" + GameManager.score_two;
 
         //health
         //healthText.text = "P1 Health: " + players[0].GetComponent<PlayerChar>().GetHealth();
