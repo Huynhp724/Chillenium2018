@@ -15,6 +15,9 @@ public class StateManager : MonoBehaviour {
 	public Text scoreText;
 	public Text scoreText2;
 
+	public Image portrait, portrait2;
+	public Sprite bird, cat, fish;
+
     public float countdownTime; //How long between each "phase"
     public float checkInTime; //When player can check in
     float counter;
@@ -64,6 +67,29 @@ public class StateManager : MonoBehaviour {
 				aud.clip = countdownClips [counterNum];
 				aud.Play ();
 				clipTracker--;
+			}
+
+			switch (players [0].GetComponent<Entity> ().type) {
+			case Entity.Element.bass:
+				portrait.sprite = fish;
+				break;
+			case Entity.Element.guitar:
+				portrait.sprite = cat;
+				break;
+			case Entity.Element.horn:
+				portrait.sprite = bird;
+				break;
+			}
+			switch (players [1].GetComponent<Entity> ().type) {
+			case Entity.Element.bass:
+				portrait2.sprite = fish;
+				break;
+			case Entity.Element.guitar:
+				portrait2.sprite = cat;
+				break;
+			case Entity.Element.horn:
+				portrait2.sprite = bird;
+				break;
 			}
 		}
        
