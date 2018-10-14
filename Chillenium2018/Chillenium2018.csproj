@@ -313,6 +313,7 @@
     <Compile Include="Assets\Scripts\Combat\PlayerChar.cs" />
     <Compile Include="Assets\Scripts\Combat\ProjectileHandler.cs" />
     <Compile Include="Assets\Scripts\Combat\Shoot.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MenuButtons.cs" />
     <Compile Include="Assets\Scripts\StateManager.cs" />
   </ItemGroup>
