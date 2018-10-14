@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharController : MonoBehaviour {
+	public bool dead = false;
 
     public enum PlayerNum { player1, player2, player3, player4}
     float move; //what direction char is facing
@@ -49,138 +50,117 @@ public class CharController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (!dead) {
+			//PLAYER ONE INPUTS
+			if (playerNumber == PlayerNum.player1) {
+				if ((Input.GetButtonDown ("Jump") || Input.GetAxis ("Vertical") == 1) && grounded) {
+					//Debug.Log("JUMP");
+					jumped = true;
+				}
+				//Debug.Log(Input.GetAxisRaw("DpadX"));
+				if (GameObject.FindGameObjectWithTag ("StateManager").GetComponent<StateManager> ().canChange) {
+					if (Input.GetAxisRaw ("DpadX") < 0) {
+						changeType = Entity.Element.bass;
+						checkIn = true;
 
-        //PLAYER ONE INPUTS
-        if (playerNumber == PlayerNum.player1)
-        {
-            if ((Input.GetButtonDown("Jump") || Input.GetAxis("Vertical") == 1) && grounded)
-            {
-                //Debug.Log("JUMP");
-                jumped = true;
-            }
-            //Debug.Log(Input.GetAxisRaw("DpadX"));
-            if (GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().canChange)
-            {
-                if (Input.GetAxisRaw("DpadX") < 0)
-                {
-                    changeType = Entity.Element.bass;
-                    checkIn = true;
+					}
+					if (Input.GetAxisRaw ("DpadX") > 0) {
+						changeType = Entity.Element.horn;
+						checkIn = true;
 
-                }
-                if (Input.GetAxisRaw("DpadX") > 0)
-                {
-                    changeType = Entity.Element.horn;
-                    checkIn = true;
+					}
+					if (Input.GetAxisRaw ("DpadY") > 0) {
+						changeType = Entity.Element.guitar;
+						checkIn = true;
 
-                }
-                if (Input.GetAxisRaw("DpadY") > 0)
-                {
-                    changeType = Entity.Element.guitar;
-                    checkIn = true;
-
-                }
+					}
 
 
-            }
-        }
+				}
+			}
 
-        //PLAYER TWO INPUTS
-        if (playerNumber == PlayerNum.player2)
-        {
-            if ((Input.GetButtonDown("Jump2") || Input.GetAxis("Vertical2") == 1) && grounded)
-            {
-                //Debug.Log("JUMP");
-                jumped = true;
-            }
-            //Debug.Log(Input.GetAxisRaw("DpadX"));
-            if (GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().canChange)
-            {
-                if (Input.GetAxisRaw("DpadX2") < 0)
-                {
-                    changeType = Entity.Element.bass;
-                    checkIn = true;
+			//PLAYER TWO INPUTS
+			if (playerNumber == PlayerNum.player2) {
+				if ((Input.GetButtonDown ("Jump2") || Input.GetAxis ("Vertical2") == 1) && grounded) {
+					//Debug.Log("JUMP");
+					jumped = true;
+				}
+				//Debug.Log(Input.GetAxisRaw("DpadX"));
+				if (GameObject.FindGameObjectWithTag ("StateManager").GetComponent<StateManager> ().canChange) {
+					if (Input.GetAxisRaw ("DpadX2") < 0) {
+						changeType = Entity.Element.bass;
+						checkIn = true;
 
-                }
-                if (Input.GetAxisRaw("DpadX2") > 0)
-                {
-                    changeType = Entity.Element.horn;
-                    checkIn = true;
+					}
+					if (Input.GetAxisRaw ("DpadX2") > 0) {
+						changeType = Entity.Element.horn;
+						checkIn = true;
 
-                }
-                if (Input.GetAxisRaw("DpadY2") > 0)
-                {
-                    changeType = Entity.Element.guitar;
-                    checkIn = true;
+					}
+					if (Input.GetAxisRaw ("DpadY2") > 0) {
+						changeType = Entity.Element.guitar;
+						checkIn = true;
 
-                }
+					}
 
 
-            }
-        }
+				}
+			}
 
-        //TRANSFORMATION
-        if (change)
-        {
-            transformation();
-        }
+			//TRANSFORMATION
+			if (change) {
+				transformation ();
+			}
 
-
+		}
 
     }
 
     private void FixedUpdate()
     {
-        //Debug.Log(grounded);
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        if (playerNumber == PlayerNum.player1)
-        {
-            move = Input.GetAxisRaw("Horizontal");
-        }
-        else if(playerNumber == PlayerNum.player2)
-        {
-            move = Input.GetAxisRaw("Horizontal2");
-        }
-        //Debug.Log("MOVE: " + move);
-        //Moves Player left and right
-        if (grounded)
-        {
-            anim.SetBool("Grounded", true);
-            rb.velocity = new Vector2(move * movespeed, rb.velocity.y);
-        }
-        else
-        {
-            anim.SetBool("Grounded", false);
-            rb.velocity = new Vector2(move * movespeed/airSpeed, rb.velocity.y);
-        }
-        anim.SetFloat("Speed", Mathf.Abs(move));
+		if (!dead) {
+			//Debug.Log(grounded);
+			grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+			if (playerNumber == PlayerNum.player1) {
+				move = Input.GetAxisRaw ("Horizontal");
+			} else if (playerNumber == PlayerNum.player2) {
+				move = Input.GetAxisRaw ("Horizontal2");
+			}
+			//Debug.Log("MOVE: " + move);
+			//Moves Player left and right
+			if (grounded) {
+				anim.SetBool ("Grounded", true);
+				rb.velocity = new Vector2 (move * movespeed, rb.velocity.y);
+			} else {
+				anim.SetBool ("Grounded", false);
+				rb.velocity = new Vector2 (move * movespeed / airSpeed, rb.velocity.y);
+			}
+			anim.SetFloat ("Speed", Mathf.Abs (move));
 
-        //Jump
-        if (jumped)
-        {
+			//Jump
+			if (jumped) {
            
-            rb.velocity = new Vector2(0.0f, jumpForce);
-            jumped = false;
-        }
+				rb.velocity = new Vector2 (0.0f, jumpForce);
+				jumped = false;
+			}
 
-        //flip if moving other way
-        if(move < 0 && facingRight)
-        {
-            //spr.flipX = true;
-            facingRight = false;
-            transform.localScale = new Vector3(
-          transform.localScale.x * -1,
-          transform.localScale.y,
-          transform.localScale.z);
-        }
-        if(move > 0 && !facingRight)
-        {
-            facingRight = true;
-            transform.localScale = new Vector3(
-            transform.localScale.x * -1,
-            transform.localScale.y,
-            transform.localScale.z);
-        }
-
+			//flip if moving other way
+			if (move < 0 && facingRight) {
+				//spr.flipX = true;
+				facingRight = false;
+				transform.localScale = new Vector3 (
+					transform.localScale.x * -1,
+					transform.localScale.y,
+					transform.localScale.z);
+			}
+			if (move > 0 && !facingRight) {
+				facingRight = true;
+				transform.localScale = new Vector3 (
+					transform.localScale.x * -1,
+					transform.localScale.y,
+					transform.localScale.z);
+			}
+		}
     }
 
     public void changeRumble()

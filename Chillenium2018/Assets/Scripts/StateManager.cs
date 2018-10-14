@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class StateManager : MonoBehaviour {
-
     public float gravityForce;
 
     public Text timerText;
@@ -39,20 +38,20 @@ public class StateManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		//counter
-        int counterNum = (int)counter;
-        timerText.text = counterNum.ToString();
-        counter -= Time.deltaTime;
-        //If counter gets to check in time, allows player to lock in a choice
-        if(counterNum < countdownClips.Length && clipTracker != counterNum)
-        {
-            canChange = true;
-            timerText.color = Color.yellow;
-            aud.clip = countdownClips[counterNum];
-            aud.Play();
-            clipTracker--;
-        }
+		if (!GameManager.roundOver) {
+			//counter
+			int counterNum = (int)counter;
+			timerText.text = counterNum.ToString ();
+			counter -= Time.deltaTime;
+			//If counter gets to check in time, allows player to lock in a choice
+			if (counterNum < countdownClips.Length && clipTracker != counterNum) {
+				canChange = true;
+				timerText.color = Color.yellow;
+				aud.clip = countdownClips [counterNum];
+				aud.Play ();
+				clipTracker--;
+			}
+		}
        
         //If player locks in, update their lock in message
         if (players[0].GetComponent<CharController>().checkIn)
@@ -87,10 +86,6 @@ public class StateManager : MonoBehaviour {
 		//score
 		scoreText.text = "P1 Score: " + GameManager.score_one; 
 		scoreText2.text = "P2 Score: " + GameManager.score_two;
-
-		//health
-		//healthText.text = "P1 Health: " + players[0].GetComponent<PlayerChar>().GetHealth();
-		//healthText2.text = "P2 Health: " + players[1].GetComponent<PlayerChar>().GetHealth();
 
 		//ammo
 		for (int index = 1; index <= 5; index++) {
