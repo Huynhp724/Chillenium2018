@@ -327,6 +327,7 @@
     <Compile Include="Assets\Scripts\MenuButtons.cs" />
     <Compile Include="Assets\Scripts\StateManager.cs" />
     <Compile Include="Assets\Scripts\TutorialListener.cs" />
+    <Compile Include="Assets\Scripts\WinScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
