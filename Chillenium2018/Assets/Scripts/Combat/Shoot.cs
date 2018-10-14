@@ -18,8 +18,8 @@ public class Shoot : MonoBehaviour {
 	public int projectiles_remaining = 5;
 
 	float timer;
-	public float reload_time = 0.25f;
-	public float spam_time = 0.75f;
+	public float reload_time = 0.25f; //how fast you can spam
+	public float spam_time = 0.75f; //how fast bullets come back
     public float blasterSpeed = 20f;
 
     public Sprite fishNotes;

@@ -21,8 +21,10 @@ public class PlayerChar : MonoBehaviour {
     public AudioClip weakHit;
     public AudioClip normalHit;
     public AudioClip strongHit;
+    public AudioClip deathSound;
 
     public AudioSource playerAud;
+    public AudioSource deathAud;
 
     //public float blasterSpeed = 50f;
 
@@ -106,7 +108,11 @@ public class PlayerChar : MonoBehaviour {
 		}
         if (health <= 0)
 		{
-			StartCoroutine(Death());
+            
+            deathAud.clip = deathSound;
+            if(!deathAud.isPlaying)deathAud.Play();
+            CameraShaker.Instance.ShakeOnce(5f, 9f, 1f, 3f);
+            StartCoroutine(Death());
         }
     }
 
@@ -114,7 +120,9 @@ public class PlayerChar : MonoBehaviour {
 	public int GetHealth(){return health;}
 
 	IEnumerator Death(){
-		GameManager.roundOver = true;
+        
+
+        GameManager.roundOver = true;
 		winText.gameObject.SetActive (true);
 		health = 0;
 		if (!scored) {
