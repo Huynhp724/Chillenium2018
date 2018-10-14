@@ -812,6 +812,36 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114942484568409142, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942484568409142, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114942484568409142, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114978235205972402, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.8980392
+      objectReference: {fileID: 0}
+    - target: {fileID: 114978235205972402, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114978235205972402, guid: fccb8cbba0fef7d49b3a06a4dea20586,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fccb8cbba0fef7d49b3a06a4dea20586, type: 2}
   m_IsPrefabAsset: 0
@@ -1015,6 +1045,11 @@ Prefab:
       propertyPath: normalHit
       value: 
       objectReference: {fileID: 8300000, guid: d314a87101e03344aba4b1c0ffe7bdd6, type: 3}
+    - target: {fileID: 114818885232902502, guid: 43f253aaa63754740b60e932b49a16b9,
+        type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 324098417}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
   m_IsPrefabAsset: 0
@@ -1339,6 +1374,11 @@ Prefab:
       propertyPath: birdSFX.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: c3e42c9236b518244b1c187a4a641f84, type: 3}
+    - target: {fileID: 114818885232902502, guid: 43f253aaa63754740b60e932b49a16b9,
+        type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 302390721}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f253aaa63754740b60e932b49a16b9, type: 2}
   m_IsPrefabAsset: 0
