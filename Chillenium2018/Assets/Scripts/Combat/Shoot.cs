@@ -22,6 +22,10 @@ public class Shoot : MonoBehaviour {
 	public float spam_time = 0.75f;
     public float blasterSpeed = 20f;
 
+    public Sprite fishNotes;
+    public Sprite catNotes;
+    public Sprite birdNotes;
+
     private void Awake()
     {
         attackSources = new AudioSource[attackNum];
@@ -117,6 +121,18 @@ public class Shoot : MonoBehaviour {
 	void FireProjectile(){
 		GameObject projectileClone = (GameObject)Instantiate(projectile, spawnLocation.position, spawnLocation.rotation);
         projectileClone.GetComponent<Entity>().type = gameObject.GetComponent<Entity>().type;
+        if(gameObject.GetComponent<Entity>().type == Entity.Element.bass)
+        {
+            projectileClone.GetComponent<SpriteRenderer>().sprite = fishNotes;
+        }
+        if (gameObject.GetComponent<Entity>().type == Entity.Element.guitar)
+        {
+            projectileClone.GetComponent<SpriteRenderer>().sprite = catNotes;
+        }
+        if (gameObject.GetComponent<Entity>().type == Entity.Element.horn)
+        {
+            projectileClone.GetComponent<SpriteRenderer>().sprite = birdNotes;
+        }
         projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
         projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
     }

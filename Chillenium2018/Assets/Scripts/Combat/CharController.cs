@@ -30,6 +30,7 @@ public class CharController : MonoBehaviour {
     public AudioClip fishLandSFX;
     public AudioClip catLandSFX;
     public AudioClip birdLandSFX;
+    public AudioClip rustleSFX;
 
     Rigidbody2D rb;
     SpriteRenderer spr;
@@ -207,7 +208,7 @@ public class CharController : MonoBehaviour {
             {
                 anim.SetInteger("Form", 1);
             }
-          
+            GameObject.FindGameObjectWithTag("StateManager").GetComponent<StateManager>().checkAmmo();
         }
         anim.SetBool("Rumbling", true);
         change = false;
@@ -273,6 +274,12 @@ public class CharController : MonoBehaviour {
     public void playDashSound()
     {
 
+    }
+
+    public void playRustle()
+    {
+        aud.clip = rustleSFX;
+        aud.Play();
     }
 
 }
