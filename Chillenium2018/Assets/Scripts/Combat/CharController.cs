@@ -296,7 +296,7 @@ public class CharController : MonoBehaviour {
 
     public void deGlow()
     {
-        myLight.intensity = 7;
+        myLight.intensity = 4f;
         myLight.color = Color.white;
     }
 

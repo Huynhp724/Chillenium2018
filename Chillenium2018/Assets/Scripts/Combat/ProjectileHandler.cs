@@ -18,7 +18,7 @@ public class ProjectileHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(source.gameObject.GetComponent<Entity>().type != Entity.Element.horn)transform.Translate (speed * Time.deltaTime, 0, 0);
+		if(source.gameObject.GetComponent<Entity>().type == Entity.Element.guitar)transform.Translate (speed * Time.deltaTime, 0, 0);
 
 		//TIMER
 		timer -= Time.deltaTime;

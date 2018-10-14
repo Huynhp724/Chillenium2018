@@ -119,6 +119,7 @@ public class Shoot : MonoBehaviour {
             projectileClone.GetComponent<ProjectileHandler>().speed = gameObject.transform.localScale.x * blasterSpeed;
             projectileClone.GetComponent<ProjectileHandler>().source = gameObject;
             projectileClone.transform.localScale = new Vector3(Mathf.Sign(gameObject.transform.localScale.x), projectileClone.transform.localScale.y, projectileClone.transform.localScale.z);
+            projectileClone.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sign(gameObject.transform.localScale.x)*16f, 8f);
         }
         if (gameObject.GetComponent<Entity>().type == Entity.Element.guitar)
         {
