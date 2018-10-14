@@ -448,12 +448,6 @@ Prefab:
       propertyPath: anim2
       value: 
       objectReference: {fileID: 994550481}
-    - target: {fileID: 114006922577443638, guid: 4c28d6b12a32e534fb28f4a6b1e05563,
-        type: 2}
-      propertyPath: mystery2
-      value: 
-      objectReference: {fileID: 21300000, guid: 6f6d0755ff1b80e46aad599fa8a55e1f,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c28d6b12a32e534fb28f4a6b1e05563, type: 2}
   m_IsPrefabAsset: 0

@@ -729,8 +729,9 @@ MonoBehaviour:
   bird: {fileID: 21300000, guid: 17004407b019e39429c9a23edf6c9d25, type: 3}
   cat: {fileID: 21300000, guid: 441b04e8e612ad3439f7ce98b847fb8b, type: 3}
   fish: {fileID: 21300000, guid: eb59c2e21f4a03b408e0f19197aca6bf, type: 3}
-  arrow: {fileID: 1765150795275944}
   mystery: {fileID: 21300000, guid: 39dd63e522116174896d91a4620dd3f6, type: 3}
+  mystery2: {fileID: 21300000, guid: 6f6d0755ff1b80e46aad599fa8a55e1f, type: 3}
+  arrow: {fileID: 1765150795275944}
   pause: {fileID: 1097243901076644}
   countdownTime: 10
   checkInTime: 3
@@ -996,7 +997,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
